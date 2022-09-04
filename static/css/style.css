@@ -1,0 +1,21 @@
+body{
+    background-color: #f8e2f7;    
+}
+head{
+    text-align: center;
+}
+title{
+    left: 50%;
+    color: blueviolet;
+    text-align: center;
+}
+output{
+    color: #3a0838;
+}
+img{
+    position: absolute;
+    margin-left: 50%;
+}
+label{
+    color: #741e71;
+}
