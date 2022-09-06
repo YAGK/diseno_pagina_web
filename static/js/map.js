@@ -1,4 +1,4 @@
-var map = L.map('map').setView([Lat, Lon], 13);
+var map = L.map('map').setView([parseFloat(Lat), parseFloat(Lon)], 13);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -10,4 +10,4 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap'
 }).addTo(map);
 
-var marker = L.marker([Lat, Lon]).addTo(map);
+var marker = L.marker([parseFloat(Lat), parseFloat(Lon)]).addTo(map);
