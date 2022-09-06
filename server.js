@@ -12,11 +12,15 @@ const udp = require('dgram')
 const mysql = require('mysql')
 
 app.listen(12600, ()=>console.log('Mi servidor está corriendo sobre el puerto 12600'))
+app.use(express.static(__dirname + "/static"));
 const connection = mysql.createConnection({
     host: "disenoyagk.cuompzorqnem.us-east-1.rds.amazonaws.com",
-    username: "YAGK01",
-    password: "tobiascookiemaxtom"
-})
+    user: "YAGK01",
+    password: "tobiascookiemaxtom",
+    database:'diseno',
+    multipleStatements: true
+    });
+    connection.connect();
 
 const server = udp.createSocket('udp4')
 server.on('listening',()=>{
@@ -27,10 +31,11 @@ server.on('message',(data)=>{
     console.log(data)
     let dataFormatted = data.toString('utf8')
         console.log(dataFormatted)
-        let lat = '71'
-        let long = '32'
-        let date = '2022-09-05'
-        let time = '20:45:00'
+        var msj = dataFormatted.split('%');
+        let lat = msj[0]
+        let long = msj[1]
+        let date = msj[2]
+        let time = msj[3]
         const query = "INSERT INTO datos (Latitud, Longitud, Fecha, Hora) VALUES (' "+ lat +"' , ' "+ 
         long +" ', ' "+ date+"', ' "+time+" ' ) ;"
         connection.query(query,(e)=>{
@@ -46,13 +51,18 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/getData',(req,res)=>{
-    res.send('Datos de la base de datos')
-    const query = `SELECT * FROM datos`
+
+    const query = 'SELECT * FROM datos ORDER BY ID DESC LIMIT 1'
+
     connection.query(query,(e,data)=>{
         if(e){
             console.log(e)
         }else{
             console.log(data)
+            let datas = data
+            res.status(200).json({
+                data: datas
+            })
         }
     })
 })
