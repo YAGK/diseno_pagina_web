@@ -19,7 +19,21 @@ fetch('http://yagk0kev.ddns.net:80/getData')
             document.getElementById("long").innerText = str[1];
             document.getElementById("date").innerText = str[2];
             document.getElementById("time").innerText = str[3];
-        
+
+
+            var map = L.map('map').setView([Latitud, Longitud], 13);
+
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '© OpenStreetMap'
+            }).addTo(map);
+            
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '© OpenStreetMap'
+            }).addTo(map);
+            
+            var marker = L.marker([Latitud, Longitud]).addTo(map);
 
 });
 }

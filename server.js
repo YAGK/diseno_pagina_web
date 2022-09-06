@@ -66,4 +66,3 @@ app.get('/getData',(req,res)=>{
         }
     })
 })
-mai
