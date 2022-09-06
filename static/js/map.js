@@ -12,7 +12,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 function mapita  (){
 console.log(Lati,Longi); 
 var marker = L.marker([parseFloat(Lati), parseFloat(Longi)]).addTo(map); //Añade marcadores
-map.flyTo([parseFloat(Lati), parseFloat(Longi)], 14)
+map.flyTo([parseFloat(Lati), parseFloat(Longi)])
 }
 mapita()
 setInterval(mapita, 4900)
