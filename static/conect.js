@@ -1,6 +1,6 @@
 
 function act(){
-fetch('http://ec2-54-234-51-56.compute-1.amazonaws.com:80/getData')
+fetch('http://yagk0kev.ddns.net:80/getData')
 .then(res => res.json())
 .then(data => {
     console.log(data.data);
