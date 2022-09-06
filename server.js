@@ -13,9 +13,9 @@ const mysql = require('mysql')
 
 app.listen(12600, ()=>console.log('Mi servidor está corriendo sobre el puerto 12600'))
 const connection = mysql.createConnection({
-    host: "localhost",
-    username: "root",
-    password: "1234567890"
+    host: "disenoyagk.cuompzorqnem.us-east-1.rds.amazonaws.com",
+    username: "YAGK01",
+    password: "tobiascookiemaxtom"
 })
 
 const server = udp.createSocket('udp4')
@@ -27,10 +27,10 @@ server.on('message',(data)=>{
     console.log(data)
     let dataFormatted = data.toString('utf8')
         console.log(dataFormatted)
-        let lat = ''
-        let long = ''
-        let date = ''
-        let time = ''
+        let lat = '71'
+        let long = '32'
+        let date = '2022-09-05'
+        let time = '20:45:00'
         const query = "INSERT INTO datos (Latitud, Longitud, Fecha, Hora) VALUES (' "+ lat +"' , ' "+ 
         long +" ', ' "+ date+"', ' "+time+" ' ) ;"
         connection.query(query,(e)=>{
