@@ -1,4 +1,5 @@
-
+var Lati="10.96703";
+var Longi="-74.788";
 function act(){
     fetch('http://yagk0kev.ddns.net:80/getData')
     .then(res => res.json())
@@ -13,8 +14,8 @@ function act(){
             str[3]= `${item.Hora} `
         });
                console.log(str)
-               var Lat=str[0];
-               var Lon=str[1];
+               Lati=str[0];
+               Longi=str[1];
 
                str[2] = new Date(str[2])
                str[2] = str[2].getFullYear() +':'+(str[2].getMonth()+1).toString().padStart(2,'0') +':' + (str[2].getDate()+1).toString().padStart(2,'0')
