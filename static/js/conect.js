@@ -1,7 +1,7 @@
 var Lati="10.96703";
 var Longi="-74.788";
 function act(){
-    fetch('http://yagk0kev.ddns.net:80/getData')
+    fetch('/getData')
     .then(res => res.json())
     .then(data => {
         console.log(data.data);
