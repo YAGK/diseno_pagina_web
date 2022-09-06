@@ -13,27 +13,15 @@ function act(){
             str[3]= `${item.Hora} `
         });
                console.log(str)
+               var Lat=str[0];
+               var Lon=str[1];
+
                str[2] = new Date(str[2])
                str[2] = str[2].getFullYear() +':'+(str[2].getMonth()+1).toString().padStart(2,'0') +':' + (str[2].getDate()+1).toString().padStart(2,'0')
                 document.getElementById("lat").innerText = str[0];
                 document.getElementById("long").innerText = str[1];
                 document.getElementById("date").innerText = str[2];
                 document.getElementById("time").innerText = str[3];
-    
-    
-                var map = L.map('map').setView([Latitud, Longitud], 13);
-    
-                L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    maxZoom: 19,
-                    attribution: '© OpenStreetMap'
-                }).addTo(map);
-                
-                L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    maxZoom: 19,
-                    attribution: '© OpenStreetMap'
-                }).addTo(map);
-                
-                var marker = L.marker([Latitud, Longitud]).addTo(map);
     
     });
     }
