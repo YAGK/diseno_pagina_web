@@ -19,3 +19,13 @@ img{
 label{
     color: #741e71;
 }
+
+#map {
+    height: 500px;
+    width: 40%;
+    position: absolute;
+    justify-content: center;
+    display: flex;
+    gap: 10px;
+}
+
