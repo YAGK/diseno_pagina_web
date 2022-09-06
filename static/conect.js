@@ -1,6 +1,6 @@
 
 function act(){
-fetch('http://localhost:12600/getData')
+fetch('http://ec2-54-234-51-56.compute-1.amazonaws.com:80/getData')
 .then(res => res.json())
 .then(data => {
     console.log(data.data);

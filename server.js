@@ -11,7 +11,7 @@ const app = express()
 const udp = require('dgram')
 const mysql = require('mysql')
 
-app.listen(12600, ()=>console.log('Mi servidor está corriendo sobre el puerto 12600'))
+app.listen(80, ()=>console.log('Mi servidor está corriendo sobre el puerto 12600'))
 app.use(express.static(__dirname + "/static"));
 const connection = mysql.createConnection({
     host: "disenoyagk.cuompzorqnem.us-east-1.rds.amazonaws.com",
