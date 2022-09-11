@@ -4,15 +4,10 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '© OpenStreetMap'
 }).addTo(map);
-
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '© OpenStreetMap'
-}).addTo(map);
-function mapita  (){
+function CamMap  (){
 console.log(Lati,Longi); 
 var marker = L.marker([parseFloat(Lati), parseFloat(Longi)]).addTo(map); //Añade marcadores
 map.flyTo([parseFloat(Lati), parseFloat(Longi)])
 }
 mapita()
-setInterval(mapita, 4900)
+setInterval(CamMap, 4900)
