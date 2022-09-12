@@ -1,5 +1,5 @@
-var map 
-//= L.map('map').setView([parseFloat(Lati), parseFloat(Longi)], 13);
+var map = L.map('map');
+//.setView([parseFloat(Lati), parseFloat(Longi)], 13);
 PreLa=0, PreLo=0;
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
