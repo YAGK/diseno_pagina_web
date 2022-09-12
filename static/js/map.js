@@ -8,7 +8,9 @@ function CamMap  (){
 console.log(Lati,Longi); 
 var marker = L.marker([parseFloat(Lati), parseFloat(Longi)]).addTo(map); //Añade marcadores
 map.flyTo([parseFloat(Lati), parseFloat(Longi)])
-console.log('Move cam')
+server.on('listening',()=>{
+    console.log('Move cam')
+})
 }
 if(parseFloat(Lati)!=parseFloat(PreLa)&&parseFloat(Longi)!=parseFloat(PreLo)){
 console.log()   
