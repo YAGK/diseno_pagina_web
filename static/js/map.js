@@ -4,13 +4,13 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '© OpenStreetMap'
 }).addTo(map);
-function CamMap  (){
 
+function CamMap  (){
 console.log("Pre", PreLa, PreLo)
 console.log(Lati,Longi);
 if(parseFloat(Lati)!=parseFloat(PreLa)){
     console.log("Entre", PreLa, Lati)
-    clearImmediate(CamMap);
+    clearInterval(CamMap);
     } 
 var marker = L.marker([parseFloat(Lati), parseFloat(Longi)]).addTo(map); //Añade marcadores
 map.flyTo([parseFloat(Lati), parseFloat(Longi)])
