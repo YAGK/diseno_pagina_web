@@ -12,8 +12,9 @@ map.flyTo([parseFloat(Lati), parseFloat(Longi)])
 PreLa=Lati;
 PreLo=Longi;
 }
-if(parseFloat(Lati)!=parseFloat(PreLa)&&parseFloat(Longi)!=parseFloat(PreLo)){
+if(parseFloat(Lati)!=parseFloat(PreLa)){
 console.log("Pre", PreLa, PreLo)   
     CamMap()
     setInterval(CamMap, 4900)
-}clearInterval(CamMap)
+}
+clearInterval();
