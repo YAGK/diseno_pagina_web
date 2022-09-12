@@ -11,9 +11,10 @@ map.flyTo([parseFloat(Lati), parseFloat(Longi)])
 }
 if(parseFloat(Lati)!=parseFloat(PreLa)&&parseFloat(Longi)!=parseFloat(PreLo)){
 console.log("Holi")   
-CamMap()
-setInterval(CamMap, 4900)
+    CamMap()
+    setInterval(CamMap, 4900)
 PreLa=Lati;
 PreLo=Longi;
-
+}else{
+    clearInterval(CamMap)
 }
