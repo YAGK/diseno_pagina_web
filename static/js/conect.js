@@ -24,6 +24,7 @@ function act(){
     
     });
     }
+    //Activar ciclo
     act()
     setInterval(act, 4900)
     
