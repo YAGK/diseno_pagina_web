@@ -22,3 +22,27 @@ jobs:
           REMOTE_HOST: ${{ secrets.HOST_DNS_GAB }}
           REMOTE_USER: ${{ secrets.USERNAME }}
           TARGET: ${{ secrets.TARGET_DIR }}
+      
+      - name: Deploy to Server 2
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY_KEV }}
+          REMOTE_HOST: ${{ secrets.HOST_DNS_KEV }}
+          REMOTE_USER: ${{ secrets.USERNAME }}
+          TARGET: ${{ secrets.TARGET_DIR }}
+
+      - name: Deploy to Server 3
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY_YES }}
+          REMOTE_HOST: ${{ secrets.HOST_DNS_YES }}
+          REMOTE_USER: ${{ secrets.USERNAME }}
+          TARGET: ${{ secrets.TARGET_DIR }}
+
+      - name: Deploy to Server 4
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY_ALE }}
+          REMOTE_HOST: ${{ secrets.HOST_DNS_ALE }}
+          REMOTE_USER: ${{ secrets.USERNAME }}
+          TARGET: ${{ secrets.TARGET_DIR }}
