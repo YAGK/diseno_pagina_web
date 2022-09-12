@@ -3,8 +3,7 @@ var Longi="-74.788";
 function act(){
     fetch('/getData')
     .then(res => res.json())
-    .then(data => {
-        console.log(data.data);
+    .then(data => {        
         let str = [];
         data.data.map(item => {
             console.log(Object.keys(item))
