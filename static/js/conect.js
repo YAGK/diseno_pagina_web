@@ -6,7 +6,7 @@ function act(){
     .then(data => {        
         let str = [];
         data.data.map(item => {
-            console.log(Object.keys(item))
+            //console.log(Object.keys(item))
             str[0]= `${item.Latitud} `
             str[1]= `${item.Longitud} `
             str[2]= `${item.Fecha}`
