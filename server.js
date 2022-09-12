@@ -24,13 +24,11 @@ const connection = mysql.createConnection({
 
 const server = udp.createSocket('udp4')
 server.on('listening',()=>{
-    console.log('Servidor UDP corriendo 52000')
+    console.log('Server UDP ON')
 })
 server.bind(52000)
-server.on('message',(data)=>{
-    console.log(data)
-    let dataFormatted = data.toString('utf8')
-        console.log(dataFormatted)
+server.on('message',(data)=>{    
+    let dataFormatted = data.toString('utf8')        
         var msj = dataFormatted.split('%');
         let lat = msj[0]
         let long = msj[1]
@@ -45,8 +43,7 @@ server.on('message',(data)=>{
         })
 })
 
-app.get('/',(req,res)=>{
-    console.log(__dirname)
+app.get('/',(req,res)=>{    
     res.sendFile(__dirname+'/pagina_sobria.html')
 })
 
@@ -57,8 +54,7 @@ app.get('/getData',(req,res)=>{
     connection.query(query,(e,data)=>{
         if(e){
             console.log(e)
-        }else{
-            console.log(data)
+        }else{            
             let datas = data
             res.status(200).json({
                 data: datas
