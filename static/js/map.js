@@ -5,8 +5,13 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap'
 }).addTo(map);
 function CamMap  (){
+
 console.log("Pre", PreLa, PreLo)
-console.log(Lati,Longi); 
+console.log(Lati,Longi);
+if(parseFloat(Lati)!=parseFloat(PreLa)){
+    console.log("Entre", PreLa, Lati)
+    clearImmediate(CamMap);
+    } 
 var marker = L.marker([parseFloat(Lati), parseFloat(Longi)]).addTo(map); //Añade marcadores
 map.flyTo([parseFloat(Lati), parseFloat(Longi)])
 PreLa=Lati;
