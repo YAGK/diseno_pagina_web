@@ -8,7 +8,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 function CamMap  (){
 console.log("Pre", PreLa, PreLo)
 console.log(Lati,Longi);
-if(parseFloat(Lati)!=parseFloat(PreLa)){
+if(parseFloat(Lati)==parseFloat(PreLa)){
     console.log("Entre", PreLa, Lati)
     clearInterval(CamMap);
     } 
