@@ -18,3 +18,4 @@ if(parseFloat(Lati)!=parseFloat(PreLa)){
         setInterval(CamMap, 4900)
     }
     clearInterval();
+    console.log("Llega hasta acá")
