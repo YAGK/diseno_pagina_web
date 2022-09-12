@@ -3,8 +3,7 @@ var Longi="-74.788";
 function act(){
     fetch('/getData')
     .then(res => res.json())
-    .then(data => {
-        console.log(data.data);
+    .then(data => {        
         let str = [];
         data.data.map(item => {
             console.log(Object.keys(item))
@@ -12,8 +11,7 @@ function act(){
             str[1]= `${item.Longitud} `
             str[2]= `${item.Fecha}`
             str[3]= `${item.Hora} `
-        });
-               console.log(str)
+        });               
                Lati=str[0];
                Longi=str[1];
 
