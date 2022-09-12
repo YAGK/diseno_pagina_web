@@ -11,8 +11,7 @@ function act(){
             str[1]= `${item.Longitud} `
             str[2]= `${item.Fecha}`
             str[3]= `${item.Hora} `
-        });
-               console.log(str)
+        });               
                Lati=str[0];
                Longi=str[1];
 
