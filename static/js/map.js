@@ -9,11 +9,11 @@ console.log("Pre", PreLa, PreLo)
 console.log(Lati,Longi); 
 var marker = L.marker([parseFloat(Lati), parseFloat(Longi)]).addTo(map); //Añade marcadores
 map.flyTo([parseFloat(Lati), parseFloat(Longi)])
+PreLa=Lati;
+PreLo=Longi;
 }
 if(parseFloat(Lati)!=parseFloat(PreLa)&&parseFloat(Longi)!=parseFloat(PreLo)){
 console.log("Pre", PreLa, PreLo)   
     CamMap()
     setInterval(CamMap, 4900)
-PreLa=Lati;
-PreLo=Longi;
 }clearInterval(CamMap)
