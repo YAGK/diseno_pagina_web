@@ -10,7 +10,7 @@ var marker = L.marker([parseFloat(Lati), parseFloat(Longi)]).addTo(map); //Añad
 map.flyTo([parseFloat(Lati), parseFloat(Longi)])
 }
 if(parseFloat(Lati)!=parseFloat(PreLa)&&parseFloat(Longi)!=parseFloat(PreLo)){
-console.log("Holi")   
+console.log("Pre", PreLa, PreLo)   
     CamMap()
     setInterval(CamMap, 4900)
 PreLa=Lati;
