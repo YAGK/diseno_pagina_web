@@ -8,19 +8,15 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 function CamMap  (){
 console.log("Pre", PreLa, PreLo)
 console.log(Lati,Longi);
-if(parseFloat(Lati)==parseFloat(PreLa)){
-    console.log("Entre", PreLa, Lati)
-    clearInterval(CamMap);
+if(parseFloat(Lati)!=parseFloat(PreLa)&&parseFloat(Longi)!=parseFloat(PreLo)){
+    var marker = L.marker([parseFloat(Lati), parseFloat(Longi)]).addTo(map) //Añade marcadores
+    //map.flyTo([parseFloat(Lati), parseFloat(Longi)])
+    map.flyTo([parseFloat(Lati), parseFloat(Longi)])
+    console.log("Añadí: ", Lati, Longi)
     } 
-var marker = L.marker([parseFloat(Lati), parseFloat(Longi)]).addTo(map); //Añade marcadores
-map.flyTo([parseFloat(Lati), parseFloat(Longi)])
 PreLa=Lati;
 PreLo=Longi;
 }
-if(parseFloat(Lati)!=parseFloat(PreLa)){
-    console.log("Pre", PreLa, PreLo)   
-        CamMap()
-        setInterval(CamMap, 4900)
-    }
-    clearInterval();
-    console.log("Llega hasta acá")
+CamMap()
+setInterval(CamMap, 4900)
+    
