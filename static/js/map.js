@@ -25,7 +25,7 @@ if(parseFloat(PreLa)!=0.0&&parseFloat(PreLo)!=0.0){
             map.flyTo([parseFloat(Lati), parseFloat(Longi)],18)            
         }}); */
     if(parseFloat(Lati)!=parseFloat(PreLa)&&parseFloat(Longi)!=parseFloat(PreLo)){
-        var marker = L.marker([parseFloat(Lati), parseFloat(Longi)]).addTo(map) //Añade marcadores        
+        //var marker = L.marker([parseFloat(Lati), parseFloat(Longi)]).addTo(map) //Añade marcadores        
         map.flyTo([parseFloat(Lati), parseFloat(Longi)],16)
         polylinePoints = [
             [parseFloat(PreLa), parseFloat(PreLo)],
