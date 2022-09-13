@@ -15,8 +15,10 @@ if(parseFloat(PreLa)!=0.0&&parseFloat(PreLo)!=0.0){
     document.onvisibilitychange = () => {
         if (document.visibilityState === 'hidden') {
             document.title("Estoy oculto")
-            map.flyTo([parseFloat(Lati), parseFloat(Longi)],18) 
+            map.flyTo([parseFloat(Lati), parseFloat(Longi)],18)    
         }
+      };
+    
     /* document.addEventListener("visibilitychange", () => {
         if (document.visibilityState === "hidden") {
             document.title("Estoy oculto")
