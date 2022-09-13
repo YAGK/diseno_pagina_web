@@ -12,11 +12,16 @@ function CamMap  (){
 console.log("Pre", PreLa, PreLo)
 console.log(Lati,Longi);
 if(parseFloat(PreLa)!=0.0&&parseFloat(PreLo)!=0.0){
-    document.addEventListener("visibilitychange", () => {
+    document.onvisibilitychange = () => {
+        if (document.visibilityState === 'hidden') {
+            document.title("Estoy oculto")
+            map.flyTo([parseFloat(Lati), parseFloat(Longi)],18) 
+        }
+    /* document.addEventListener("visibilitychange", () => {
         if (document.visibilityState === "hidden") {
             document.title("Estoy oculto")
             map.flyTo([parseFloat(Lati), parseFloat(Longi)],18)            
-        }});
+        }}); */
     if(parseFloat(Lati)!=parseFloat(PreLa)&&parseFloat(Longi)!=parseFloat(PreLo)){
         var marker = L.marker([parseFloat(Lati), parseFloat(Longi)]).addTo(map) //Añade marcadores        
         map.flyTo([parseFloat(Lati), parseFloat(Longi)],16)
