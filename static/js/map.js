@@ -10,4 +10,4 @@ map.flyTo([parseFloat(Lati), parseFloat(Longi)])
 }
 CamMap()
 setInterval(CamMap, 4900)
-//Pruebas 2.0 con M
+//Pruebas 3.0 con M
