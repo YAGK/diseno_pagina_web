@@ -1,15 +1,14 @@
 var map = L.map('map').setView([parseFloat(Lati), parseFloat(Longi)], 13);
 var polylinePoints;
 var polyline;
-PreLa=0;
-PreLo=0;
+PreLa=Lati;
+PreLo=Longi;
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '© OpenStreetMap'
 }).addTo(map);
-
+map.flyTo([parseFloat(Lati), parseFloat(Longi)])
 function CamMap  (){
-
 console.log("Pre", PreLa, PreLo)
 console.log(Lati,Longi);
 if(parseFloat(Lati)!=parseFloat(PreLa)&&parseFloat(Longi)!=parseFloat(PreLo)){
