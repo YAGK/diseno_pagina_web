@@ -3,7 +3,6 @@ var polylinePoints;
 var polyline;
 PreLa=Lati;
 PreLo=Longi;
-look=1;
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '© OpenStreetMap'
@@ -14,9 +13,8 @@ console.log("Pre", PreLa, PreLo)
 console.log(Lati,Longi);
 if(parseFloat(PreLa)!=0.0&&parseFloat(PreLo)!=0.0){
     document.addEventListener("visibilitychange", () => {
-        if (document.visibilityState === 'hidden'||look>1) {
-            map.flyTo([parseFloat(Lati), parseFloat(Longi), 16])
-            look=-1;
+        if (document.visibilityState === 'hidden') {
+            map.flyTo([parseFloat(Lati), parseFloat(Longi), 16])            
         }});
     if(parseFloat(Lati)!=parseFloat(PreLa)&&parseFloat(Longi)!=parseFloat(PreLo)){
         var marker = L.marker([parseFloat(Lati), parseFloat(Longi)]).addTo(map) //Añade marcadores        
