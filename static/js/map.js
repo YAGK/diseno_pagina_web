@@ -1,6 +1,8 @@
 var map = L.map('map').setView([parseFloat(Lati), parseFloat(Longi)], 13);
 var polylinePoints;
 var polyline;
+PreLa=0;
+PreLo=0;
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '© OpenStreetMap'
