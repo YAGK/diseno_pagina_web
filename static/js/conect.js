@@ -14,7 +14,6 @@ function act(){
         });               
                Lati=str[0];
                Longi=str[1];
-
                str[2] = new Date(str[2])
                str[2] = str[2].getFullYear() +':'+(str[2].getMonth()+1).toString().padStart(2,'0') +':' + (str[2].getDate()+1).toString().padStart(2,'0')
                 document.getElementById("lat").innerText = str[0];
