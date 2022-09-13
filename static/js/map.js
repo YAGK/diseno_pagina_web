@@ -1,7 +1,7 @@
 var map = L.map('map').setView([parseFloat(Lati), parseFloat(Longi)], 16);
 var polylinePoints;
 var polyline;
-var marker
+var marker = L.marker([parseFloat(Lati), parseFloat(Longi)]).addTo(map) //Añade marcadores    
 PreLa=Lati;
 PreLo=Longi;
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -15,7 +15,7 @@ console.log(Lati,Longi);
 if(parseFloat(PreLa)!=11.015&&parseFloat(PreLo)!=-74.8370){
     map.flyTo([parseFloat(Lati), parseFloat(Longi)])
     if(parseFloat(Lati)!=parseFloat(PreLa)&&parseFloat(Longi)!=parseFloat(PreLo)){
-        marker = L.marker([parseFloat(Lati), parseFloat(Longi)]).addTo(map) //Añade marcadores        
+        marker.setLatLng([parseFloat(Lati), parseFloat(Longi)])       
         map.flyTo([parseFloat(Lati), parseFloat(Longi)])
         polylinePoints = [
             [parseFloat(PreLa), parseFloat(PreLo)],
