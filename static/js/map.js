@@ -13,7 +13,7 @@ console.log("Pre", PreLa, PreLo)
 console.log(Lati,Longi);
 if(parseFloat(PreLa)!=0.0&&parseFloat(PreLo)!=0.0){
     document.addEventListener("visibilitychange", () => {
-        if (document.visibilityState === 'hidden') {
+        if (document.visibilityState == 'hidden') {
             map.flyTo([parseFloat(Lati), parseFloat(Longi), 16])            
         }});
     if(parseFloat(Lati)!=parseFloat(PreLa)&&parseFloat(Longi)!=parseFloat(PreLo)){
