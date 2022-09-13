@@ -1,5 +1,5 @@
-var Lati="10.96703";
-var Longi="-74.788";
+var Lati;
+var Longi;
 function act(){
     fetch('/getData')
     .then(res => res.json())
