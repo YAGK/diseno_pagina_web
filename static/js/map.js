@@ -16,7 +16,7 @@ if(parseFloat(Lati)!=parseFloat(PreLa)&&parseFloat(Longi)!=parseFloat(PreLo)){
     polylinePoints = [
         [parseFloat(PreLa), parseFloat(PreLo)],
         [parseFloat(Lati), parseFloat(Longi)] ];   
-    polyline = Wrld.polyline(polylinePoints).addTo(map);     
+    polyline = L.polyline(polylinePoints).addTo(map);     
     console.log("Añadí: ", Lati, Longi)
     } 
 PreLa=Lati;
