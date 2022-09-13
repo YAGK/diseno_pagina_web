@@ -15,7 +15,7 @@ if(parseFloat(PreLa)!=0.0&&parseFloat(PreLo)!=0.0){
     document.onvisibilitychange = () => {
         if (document.visibilityState === 'hidden') {
             document.title("Estoy oculto")
-            map.flyTo([parseFloat(Lati), parseFloat(Longi)],18)    
+            map.flyTo([parseFloat(Lati), parseFloat(Longi)])    
         }
       };
     
@@ -26,7 +26,7 @@ if(parseFloat(PreLa)!=0.0&&parseFloat(PreLo)!=0.0){
         }}); */
     if(parseFloat(Lati)!=parseFloat(PreLa)&&parseFloat(Longi)!=parseFloat(PreLo)){
         //var marker = L.marker([parseFloat(Lati), parseFloat(Longi)]).addTo(map) //Añade marcadores        
-        map.flyTo([parseFloat(Lati), parseFloat(Longi)],16)
+        map.flyTo([parseFloat(Lati), parseFloat(Longi)])
         polylinePoints = [
             [parseFloat(PreLa), parseFloat(PreLo)],
             [parseFloat(Lati), parseFloat(Longi)] ];   
