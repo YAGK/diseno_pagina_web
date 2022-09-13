@@ -11,12 +11,11 @@ console.log("Pre", PreLa, PreLo)
 console.log(Lati,Longi);
 if(parseFloat(Lati)!=parseFloat(PreLa)&&parseFloat(Longi)!=parseFloat(PreLo)){
     var marker = L.marker([parseFloat(Lati), parseFloat(Longi)]).addTo(map) //Añade marcadores
-    //map.flyTo([parseFloat(Lati), parseFloat(Longi)])
     map.flyTo([parseFloat(Lati), parseFloat(Longi)])
     polylinePoints = [
         [parseFloat(PreLa), parseFloat(PreLo)],
         [parseFloat(Lati), parseFloat(Longi)] ];   
-    var polyline = Wrld.polyline(polylinePoints).addTo(map);     
+    //var polyline = Wrld.polyline(polylinePoints).addTo(map);     
     console.log("Añadí: ", Lati, Longi)
     } 
 PreLa=Lati;
