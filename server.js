@@ -6,6 +6,7 @@
 // ------------------------------
 //npm i pm2 -g
 //pm2 start server.js
+require('dotenv').config()
 const express = require('express')
 const app = express()
 const udp = require('dgram')
@@ -14,10 +15,10 @@ const mysql = require('mysql')
 app.listen(80, ()=>console.log('Mi servidor está corriendo sobre el puerto 80'))
 app.use(express.static(__dirname + "/static"));
 const connection = mysql.createConnection({
-    host: "disenoyagk.cuompzorqnem.us-east-1.rds.amazonaws.com",
-    user: "YAGK01",
-    password: "tobiascookiemaxtom",
-    database:'diseno',
+    host: process.env.yagk_dns,
+    user: process.env.yagk_user,
+    password: process.env.yagk_pass,
+    database:process.env.yagk_data,
     multipleStatements: true
     });
     connection.connect();
