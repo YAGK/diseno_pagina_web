@@ -9,6 +9,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="static/css/style.css">
    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""/>
+   <link rel="stylesheet" href="jquery.datetimepicker.min.css">
    <title>Página Diseño</title>
 </head>
 <body>
@@ -32,20 +33,56 @@
    </div>
 
    <script src="/js/conect.js"></script>
-   <img src="/resources/Logo.jpeg" alt="logo app">
+  <!-- <img src="/resources/Logo.jpeg" alt="logo app">-->
   
-      <!--<div class="logo">
-      <img src="/static/resources/Logo.jpeg" alt="logo app">
-   </div> -->
+      
    <!-- Make sure you put this AFTER Leaflet's CSS -->
    <div id="map"></div>
    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
 
-   <script src="/js/map.js"></script>
+   <!--<script src="/js/map.js"></script>-->
    
- 
-   </script>
+   
+    
+   
+   <!--calendario-->
+   <div>
+    <script src="jquery.js"></script>
+    <script src="jquery.datetimepicker.full.min.js"></script>
+    <input id="dateAndTimePicker1">
+    <input id="dateAndTimePicker2">
+    <script >$("#dateAndTimePicker1").datetimepicker({
+      onShow:function( ct ){
+      this.setOptions({
+      maxDate:jQuery('#dateAndTimePicker2').val()?jQuery('#dateAndTimePicker2').val():false
+      })
+      },
+     
+      format: 'Y-m-d H:i:i',
+      formatTime: 'H:i:i',
+      formatDate: 'Y-m-d',
+      step: 15
+  
+  });
+  
+  $("#dateAndTimePicker2").datetimepicker({
+      onShow:function( ct ){
+      this.setOptions({
+      minDate:jQuery('#dateAndTimePicker1').val()?jQuery('#dateAndTimePicker1').val():false,
+      })
+      },
+      
+  
+      format: 'Y-m-d H:i:i',
+      formatTime: 'H:i:i',
+      formatDate: 'Y-m-d',
+      step: 15
+      
+  });</script>
+    
 
+   </div>
    
 </body>
+
 </html>

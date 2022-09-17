@@ -12,11 +12,7 @@ const app = express()
 const udp = require('dgram')
 const mysql = require('mysql')
 
-<<<<<<< HEAD
 app.listen(80, ()=>console.log('Mi servidor está corriendo sobre el puerto 80'))
-=======
-app.listen(80, ()=>console.log('Mi servidor está corriendo sobre el puerto 3000'))
->>>>>>> 0ee3f3d1d317e5e4ffc991096d3f847a00e2cc96
 app.use(express.static(__dirname + "/static"));
 const connection = mysql.createConnection({
     host: process.env.yagk_dns,
