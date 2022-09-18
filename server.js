@@ -52,6 +52,8 @@ app.get('/',(req,res)=>{
     res.sendFile(__dirname+'/pagina_sobria.html')
 })
 
+
+
 app.get('/getData',(req,res)=>{
     res.status(200).json({
         lat:lat,
@@ -60,3 +62,4 @@ app.get('/getData',(req,res)=>{
         time:time
     })
 })
+
