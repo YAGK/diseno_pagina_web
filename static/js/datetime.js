@@ -1,3 +1,4 @@
+function date  (){
 $("#dateAndTimePicker1").datetimepicker({
     onShow:function( ct ){
     this.setOptions({
@@ -26,3 +27,5 @@ $("#dateAndTimePicker2").datetimepicker({
     step: 15
     
 });
+}
+date();
