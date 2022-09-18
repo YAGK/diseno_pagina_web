@@ -35,6 +35,7 @@ server.bind(52000)
 server.on('message',(data)=>{    
     let dataFormatted = data.toString('utf8')        
         var msj = dataFormatted.split('%');
+        console.log(msj)
          lat = msj[0]
          long = msj[1]
          date = msj[2]
