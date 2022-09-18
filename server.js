@@ -6,19 +6,22 @@
 // ------------------------------
 //npm i pm2 -g
 //pm2 start server.js
-require('dotenv').config()
+//require('dotenv').config()
 const express = require('express')
 const app = express()
 const udp = require('dgram')
 const mysql = require('mysql')
-
+let lat 
+let long 
+let date 
+let time 
 app.listen(80, ()=>console.log('Mi servidor está corriendo sobre el puerto 80'))
 app.use(express.static(__dirname + "/static"));
 const connection = mysql.createConnection({
-    host: process.env.yagk_dns,
-    user: process.env.yagk_user,
-    password: process.env.yagk_pass,
-    database:process.env.yagk_data,
+    host: "disenoyagk.cuompzorqnem.us-east-1.rds.amazonaws.com",
+    user: "YAGK01",
+    password: "tobiascookiemaxtom",
+    database:'diseno',
     multipleStatements: true
     });
     connection.connect();
@@ -31,10 +34,11 @@ server.bind(52000)
 server.on('message',(data)=>{    
     let dataFormatted = data.toString('utf8')        
         var msj = dataFormatted.split('%');
-        let lat = msj[0]
-        let long = msj[1]
-        let date = msj[2]
-        let time = msj[3]
+        console.log(msj)
+        lat = msj[0]
+        long = msj[1]
+        date = msj[2]
+        time = msj[3]
         const query = "INSERT INTO datos (Latitud, Longitud, Fecha, Hora) VALUES (' "+ lat +"' , ' "+ 
         long +" ', ' "+ date+"', ' "+time+" ' ) ;"
         connection.query(query,(e)=>{
@@ -49,17 +53,10 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/getData',(req,res)=>{
-
-    const query = 'SELECT * FROM datos ORDER BY ID DESC LIMIT 1'
-
-    connection.query(query,(e,data)=>{
-        if(e){
-            console.log(e)
-        }else{            
-            let datas = data
-            res.status(200).json({
-                data: datas
-            })
-        }
+    res.status(200).json({
+        lat:lat,
+        long:long,
+        date:date,
+        time:time
     })
 })
