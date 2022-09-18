@@ -1,40 +1,75 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="./css/style.css">
 <title>YAGK||DISEÑO</title>
 <html lang="en">
 <head>
    <!--Definitive change-->
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="static/css/style.css">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" >
+   <link rel="stylesheet" href="./css/style.css">
    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""/>
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
    <title>Página Diseño</title>
 </head>
 <body>
-
+   <!-- Header -->
    <header class="header">
-      <div class="topmenu">
-         <h3>Servicio de Geolocalización de Vehículos - YAGK </h3>
-         <img src="/resources/logo yagk.png" alt="Logo YAGK">
-      </div>
+         <div class="navbar-brand">
+           <img src="/resources/logo yagk.png" alt="Logo" id="logo">
+           <h3>Servicio de Geolocalización - YAGK</h3>
+         </div>
    </header>
-   <div>
-      <div id="map">
-         <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
-      </div>
-   </div>
+      <!-- Main -->
+      <div id="parent">
+         <div id="map">
+            <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
+         </div>
+         <div>
+            <div class="right">
+               <h3>Información de GPS</h3>
+               <ul class="list-group">
+                  <li class="list-group-item">
+                     <label for="lat" id="lat_label" style="font-size: 20px;">Latitud:</label>
+                     <output id="lat" name="lat"style="font-size: 20px;"></output>
+                  </li>
+                  <li class="list-group-item">
+                     <label for="long" style="font-size: 20px;">Longitud:</label>
+                     <output id="long" name="long" style="font-size: 20px;"></output>
+                  </li>
+                  <li class="list-group-item">
+                     <label for="date" style="font-size: 20px;">Fecha:</label>
+                     <output id="date" name="date" style="font-size: 20px;"></output>
+                  </li>
+                  <li class="list-group-item">
+                     <label for="time" style="font-size: 20px;">Hora:</label>
+                     <output id="time" name="time" style="font-size: 20px;"></output>
+                  </li>
+                </ul>
+            </div>
+            <div class="bottom_right">
+               <h3>Seleccione ventana <br>
+               de tiempo: </h3>
+               <label for="start" id="start">Inicio:</label>
+               <input type="text"><br>
+               <br>
+               <label for="end" id="end">Final: </label>
+               <input type="text">
+            </div>
+         </div>
+         </div>
+      </div>   
    <script src="/js/conect.js"></script>
    <script src="/js/map.js"></script>
    <!-- Footer -->
    <footer class="footer">
       <div class="footer-top">
          <div class="left">
-            <p style="font-size: 20px;">
+            <h3 style="font-size: 20px;">
                Sistema Gestor de Información<br>
                Barranquilla, Atlántico - Colombia <br>
-            </p>
+            </h3>
+         </div>
+         <div class="right_footer">
             <p style="font-size: 18px;">
                Diseño Electrónico - 2022-03 - Uninorte <br>
                Integrantes: <br>
@@ -44,28 +79,6 @@
                Kevin Guerrero<br>
             </p>
          </div>
-         <div class="right">
-            <h3>Información de GPS</h3>
-            <ul class="list-group">
-               <li class="list-group-item">
-                  <label for="lat" id="lat_label" style="font-size: 20px;">Latitud:</label>
-                  <output id="lat" name="lat"style="font-size: 20px;"></output>
-               </li>
-               <li class="list-group-item">
-                  <label for="long" style="font-size: 20px;">Longitud:</label>
-                  <output id="long" name="long" style="font-size: 20px;"></output>
-               </li>
-               <li class="list-group-item">
-                  <label for="date" style="font-size: 20px;">Fecha:</label>
-                  <output id="date" name="date" style="font-size: 20px;"></output>
-               </li>
-               <li class="list-group-item">
-                  <label for="time" style="font-size: 20px;">Hora:</label>
-                  <output id="time" name="time" style="font-size: 20px;"></output>
-               </li>
-             </ul>
-         </div>
-      </div>
    </footer>
 </body>
 </html>
