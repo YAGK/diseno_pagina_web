@@ -6,13 +6,12 @@ function act(){
     .then(data => {        
         let str = [];
         console.log("Esta es la data =",data)
-      // data.map(item => {
-        // console.log(Object.keys(item))
+   
             str[0]= data.lat
             str[1]= data.long
             str[2]= data.date
             str[3]= data.time
-     //   });               
+                           
                Lati=str[0];
                Longi=str[1];
 
