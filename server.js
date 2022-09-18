@@ -48,6 +48,8 @@ app.get('/',(req,res)=>{
     res.sendFile(__dirname+'/pagina_sobria.html')
 })
 
+
+
 app.get('/getData',(req,res)=>{
 
     const query = 'SELECT * FROM datos ORDER BY ID DESC LIMIT 1'
@@ -63,3 +65,4 @@ app.get('/getData',(req,res)=>{
         }
     })
 })
+
