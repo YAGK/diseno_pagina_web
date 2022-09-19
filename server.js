@@ -6,22 +6,23 @@
 // ------------------------------
 //npm i pm2 -g
 //pm2 start server.js
-//require('dotenv').config()
+require('dotenv').config()
 const express = require('express')
 const app = express()
 const udp = require('dgram')
 const mysql = require('mysql')
+
 let lat 
 let long 
 let date 
-let time 
+let time
 app.listen(80, ()=>console.log('Mi servidor está corriendo sobre el puerto 80'))
 app.use(express.static(__dirname + "/static"));
 const connection = mysql.createConnection({
-    host: "disenoyagk.cuompzorqnem.us-east-1.rds.amazonaws.com",
-    user: "YAGK01",
-    password: "tobiascookiemaxtom",
-    database:'diseno',
+    host: process.env.yagk_dns,
+    user: process.env.yagk_user,
+    password: process.env.yagk_pass,
+    database:process.env.yagk_data,
     multipleStatements: true
     });
     connection.connect();
@@ -35,12 +36,12 @@ server.on('message',(data)=>{
     let dataFormatted = data.toString('utf8')        
         var msj = dataFormatted.split('%');
         console.log(msj)
-        lat = msj[0]
-        long = msj[1]
-        date = msj[2]
-        time = msj[3]
+         lat = msj[0]
+         long = msj[1]
+         date = msj[2]
+         time = msj[3]
         const query = "INSERT INTO datos (Latitud, Longitud, Fecha, Hora) VALUES (' "+ lat +"' , ' "+ 
-        long +" ', ' "+ date+"', ' "+time+" ' ) ;"
+        long +" ', ' "+ date+"', ' "+time+ " ' ) ;"
         connection.query(query,(e)=>{
             if(e){
                 console.log(e)
@@ -62,4 +63,29 @@ app.get('/getData',(req,res)=>{
         time:time
     })
 })
+
+app.get('/historicos', (req, res) => {
+    res.render('historicos', {
+    })
+})
+
+app.post("/Registro", (req, res) => {
+    var val =[
+        req.body.ini,
+        req.bodu.fin ]
+    initime=val[0]
+    fintime=val[1]
+    solquery= "SELECT Latitud, Longitud FROM datos WHERE timestamp(Fecha,Hora) between ' "+  
+    initime +"' and '"+fintime +"' "
+    connection.query(solquery,(e,data)=>{
+        if(e){
+            console.log(e)
+        } else {
+            res.status(200).json({
+                Latitud,
+                Longitud
+            })
+        }
+    })   
+});
 
