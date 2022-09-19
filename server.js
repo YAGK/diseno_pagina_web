@@ -41,7 +41,7 @@ server.on('message',(data)=>{
          date = msj[2]
          time = msj[3]
         const query = "INSERT INTO datos (Latitud, Longitud, Fecha, Hora) VALUES (' "+ lat +"' , ' "+ 
-        long +" ', ' "+ date+"', ' "+time+" ' ) ;"
+        long +" ', ' "+ date+"', ' "+time+ " ' ) ;"
         connection.query(query,(e)=>{
             if(e){
                 console.log(e)
@@ -64,4 +64,34 @@ app.get('/getData',(req,res)=>{
         time:time
     })
 })
+
+app.get('/historicos', (req, res) => {
+    res.render('historicos', {
+    })
+})
+
+app.post("/Registro", (req, res) => {
+    
+    var val =[
+        req.body.ini,
+        req.bodu.fin
+    ]
+    initime=val[0]
+    fintime=val[1]
+
+    solquery= "SELECT Latitud, Longitud FROM datos WHERE timestamp(Fecha,Hora) between ' "+  
+    initime +"' and '"+fintime +"' "
+    
+    connection.query(query,(e,data)=>{
+        if(e){
+            console.log(e)
+        } else {
+            res.status(200).json({
+                Latitud,
+                Longitud
+            })
+        }
+    })
+    
+});
 
