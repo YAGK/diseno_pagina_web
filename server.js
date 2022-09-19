@@ -64,9 +64,8 @@ app.get('/getData',(req,res)=>{
     })
 })
 
-app.get('/historicos', (req, res) => {
-    res.render('historicos', {
-    })
+app.get('/historicos',(req,res)=>{    
+    res.sendFile(__dirname+'/historicos.html')
 })
 
 app.post("/Registro", (req, res) => {
@@ -88,4 +87,5 @@ app.post("/Registro", (req, res) => {
         }
     })   
 });
+
 
