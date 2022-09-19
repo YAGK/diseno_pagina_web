@@ -65,3 +65,6 @@ app.get('/getData',(req,res)=>{
     })
 })
 
+app.get('/historicos',(req,res)=>{    
+    res.sendFile(__dirname+'/historicos.html')
+})
