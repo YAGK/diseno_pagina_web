@@ -1,11 +1,3 @@
-//sudo apt-get install nodejs
-//... npm
-//npm i express
-//npm i mysql
-
-// ------------------------------
-//npm i pm2 -g
-//pm2 start server.js
 require('dotenv').config()
 const express = require('express')
 const app = express()
