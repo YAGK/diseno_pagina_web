@@ -93,9 +93,12 @@ app.post("/registro", (req, res) => {
                 })
             }
             else {
+                console.log("server envio data;",data)
+
+
+                
                 res.status(200).json({
-                    latitud: data.latitud,
-                    longitud: data.Longitud
+                    positions: data
                 })
             }
         })

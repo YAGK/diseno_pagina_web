@@ -1,53 +1,48 @@
 
-map = L.map('map').setView([parseFloat(Lati), parseFloat(Longi)], 16);
-marker = L.marker([parseFloat(Lati), parseFloat(Longi)]).addTo(map) //Añade marcadores  
-
-//ini = '2022-09-16 12:30:00'
-//fin = '2022-09-17 22:00:00'
-console.log("Se realizo los historicos inicio", inicio)
-
-async function historia() {
-
+async function historia() {    
     const inicio = document.getElementById("dateAndTimePicker1").value;
     const final = document.getElementById("dateAndTimePicker2").value;
     let headersList = {
         "Accept": "*/*",
         "Content-Type": "application/json"
     }
-
     let bodyContent = JSON.stringify({
         "ini": inicio,
         "fin": final
     });
 
-    let response = await fetch("/registro", {
+    await fetch("/registro", {
         method: "POST",
         body: bodyContent,
         headers: headersList
     }).then(res => {
-        return res.json() //quitar cabeceras 
-    }).then(Data => {
-        console.log(Data)
+        return res.json() 
+    }).then(data => {
+        if (data.length != 0) {
+            let previousLat = 0
+            let previousLong = 0
+            data = data.positions
+            for (const i in data) {
+                const currentLatitude = data[i].Latitud
+                const currentLongitud = data[i].Longitud
+                if (parseFloat(previousLat) != 11.015 && parseFloat(previousLong) != -74.8370) {
+                    map.flyTo([parseFloat(currentLatitude), parseFloat(currentLongitud)])
+                    if (parseFloat(currentLatitude) != parseFloat(previousLat) && parseFloat(currentLongitud) != parseFloat(previousLong)) {
+                        marker.setLatLng([parseFloat(currentLatitude), parseFloat(currentLongitud)])
+                        map.flyTo([parseFloat(currentLatitude), parseFloat(currentLongitud)])
 
-        PreLa = Data[0].Latitud
-        PreLo = Data[0].Longitud
-        for (i = 1; i < length(Data); i++) {
-            Lati = Data[i].Latitud
-            Longi = Data[i].Longitud
-            if (parseFloat(PreLa) != 11.015 && parseFloat(PreLo) != -74.8370) {
-                map.flyTo([parseFloat(Lati), parseFloat(Longi)])
-                if (parseFloat(Lati) != parseFloat(PreLa) && parseFloat(Longi) != parseFloat(PreLo)) {
-                    marker.setLatLng([parseFloat(Lati), parseFloat(Longi)])
-                    map.flyTo([parseFloat(Lati), parseFloat(Longi)])
-                    polylinePoints = [
-                        [parseFloat(PreLa), parseFloat(PreLo)],
-                        [parseFloat(Lati), parseFloat(Longi)]];
-                    polyline = L.polyline(polylinePoints).addTo(map);
-                    console.log("Añadí: ", Lati, Longi)
+                        if (i > 1) {
+                            polylinePoints = [
+                                [parseFloat(previousLat), parseFloat(previousLong)],
+                                [parseFloat(currentLatitude), parseFloat(currentLongitud)]];
+                            polyline = L.polyline(polylinePoints).addTo(map);                     
+                        }
+                    }
                 }
+                previousLat = currentLatitude
+                previousLong = currentLongitud
+                
             }
-            Prela = Lati
-            Prelo = Longi
         }
     })
 }
