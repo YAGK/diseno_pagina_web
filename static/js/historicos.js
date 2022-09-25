@@ -18,19 +18,26 @@ async function historia() {
     }).then(res => {
         return res.json() 
     }).then(data => {
-        if (data.length != 0) {
-            data = data.positions
-            map.removeLayer(polyline);
-            polyline = L.polyline([]).addTo(map);
-            
-            for (const d of data) {
-                const currentLatitude = parseFloat(d.Latitud)
-                const currentLongitud = parseFloat(d.Longitud)
-                    map.flyTo([currentLatitude, currentLongitud])
-                    marker.setLatLng([currentLatitude, currentLongitud])
+        console.log(data)
+        if (data.latitud=="0" && data.longitud=="0"){
+        window.alert("Datos invalidos") 
+        }else{
+            if (data.length != 0) {
+                data = data.positions
+                map.removeLayer(polyline);
+                polyline = L.polyline([]).addTo(map);
+                
+                for (const d of data) {
+                    const currentLatitude = parseFloat(d.Latitud)
+                    const currentLongitud = parseFloat(d.Longitud)
                         map.flyTo([currentLatitude, currentLongitud])
-                        polyline.addLatLng([currentLatitude, currentLongitud])              
+                        marker.setLatLng([currentLatitude, currentLongitud])
+                            map.flyTo([currentLatitude, currentLongitud])
+                            polyline.addLatLng([currentLatitude, currentLongitud])              
+                }
             }
         }
+        
     })
 }
+

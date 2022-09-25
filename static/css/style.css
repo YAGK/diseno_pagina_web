@@ -63,6 +63,15 @@ label{
     background-color: #f8e2f7;
     justify-items: center;
 }
+
+#Consulta{
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+#Recorrido{
+    margin-top: 15px;
+}
+
 /* Footer */
 .footer {
     display: flex;
