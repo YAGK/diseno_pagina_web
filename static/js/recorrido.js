@@ -7,6 +7,8 @@ function butonrec(){
         console.log(Loc)
         latsel=Loc.lat
         longsel=Loc.lng
+         inicio = document.getElementById("dateAndTimePicker1").value;
+        final = document.getElementById("dateAndTimePicker2").value;
         recotable()  
         marker.setLatLng([latsel, longsel])
     });
@@ -19,7 +21,9 @@ let headersList = {
 }
 let bodyContent = JSON.stringify({
     "lat": latsel,
-    "lon": longsel
+    "lon": longsel,
+    "ini": inicio,
+    "fin": final
 });
 
 await fetch("/recor", {
@@ -29,18 +33,23 @@ await fetch("/recor", {
 }).then(res => {
     return res.json() 
 }).then(data => {
-    data = data.positions
+ 
+    let rec
+    console.log("data: "+data)
     if (data.fecha=="0" && data.hora=="0"){
-        window.alert("No se detectan datos") 
+        window.alert("No hay registro en esta posición") 
         }else{
-             var rec = data.map(function(bar){
-            return '<li>'+bar.Fecha+' '+bar.Hora+'</li>'
+            data = data.positions
+             rec = data.map(function(bar){
+            fec=bar.Fecha.split("T")
+            console.log(fec)
+            return '<li>'+fec[0]+' '+bar.Hora+'</li>'
           })
           document.getElementById("rec").innerHTML = rec;}
 
-          Recorrido.style.backgroundColor = "#741e71"
-          Recorrido.style.color="#f8e2f7"
-   
+          Recorrido.style.backgroundColor = "#f8e2f7"
+          Recorrido.style.color="#70747c"
+          map.off('click')
 })
 
 }

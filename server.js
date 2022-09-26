@@ -69,7 +69,7 @@ app.get('/historicos', (req, res) => {
 
 
 app.post("/registro", (req, res) => {
-    console.log('Soy el post correcto', req.body)
+
     try {
         const initime = req.body.ini
         const fintime = req.body.fin
@@ -86,9 +86,6 @@ app.post("/registro", (req, res) => {
             }
             else {
                 console.log("server envio data;",data)
-
-
-                
                 res.status(200).json({
                     positions: data
                 })
@@ -105,16 +102,19 @@ app.post("/recor", (req, res) => {
     try {
         const latsel = req.body.lat
         const lonsel = req.body.lon
-        solQuery = "SELECT Fecha, Hora FROM datos WHERE Latitud BETWEEN ("+latsel+"*0.99999) and ("+latsel+
-        "*1.00001) and Longitud BETWEEN ("+lonsel+"*1.00001) AND ("+lonsel+"*0.99999)"
+        const initime = req.body.ini
+        const fintime = req.body.fin
+        solQuery = "SELECT DISTINCT Fecha, Hora FROM datos WHERE Latitud BETWEEN ("+latsel+"*0.99997) and ("+latsel+
+        "*1.00005) and Longitud BETWEEN ("+lonsel+"*1.00005) AND ("+lonsel+"*0.99997) and timestamp(Fecha,Hora) between ' " +
+        initime + "' and '" + fintime + "'"
         console.log(solQuery)
         connection.query(solQuery, (e, data) => {
             if (e) {
                 console.log(e)
             } else if (data.length == 0) {
                 res.status(200).json({
-                    Fecha: '0',
-                    Hora: '0'
+                    fecha: '0',
+                    hora: '0'
                 })
             }
             else {

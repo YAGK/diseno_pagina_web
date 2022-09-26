@@ -1,7 +1,13 @@
 var map = L.map('map').setView([parseFloat(Lati), parseFloat(Longi)], 16);
 var polylinePoints;
 var polyline;
-var marker = L.marker([parseFloat(Lati), parseFloat(Longi)]).addTo(map) //Añade marcadores    
+let Icon = L.icon({
+    iconUrl: '/resources/truck.png',
+    iconSize: [30, 50],
+    iconAnchor: [15, 50],
+
+});
+let marker = L.marker([parseFloat(Lati), parseFloat(Longi)],{icon: Icon}).addTo(map) //Añade marcadores    
 PreLa=Lati;
 PreLo=Longi;
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -18,7 +24,7 @@ if(parseFloat(PreLa)!=11.015&&parseFloat(PreLo)!=-74.8370){
         marker.setLatLng([parseFloat(Lati), parseFloat(Longi)])       
         map.flyTo([parseFloat(Lati), parseFloat(Longi)])
         polylinePoints = [
-            [parseFloat(PreLa), parseFloat(PreLo)],
+         [parseFloat(PreLa), parseFloat(PreLo)],
             [parseFloat(Lati), parseFloat(Longi)] ];   
         polyline = L.polyline(polylinePoints).addTo(map);     
         console.log("Añadí: ", Lati, Longi)
