@@ -31,7 +31,7 @@ async function historia() {
         return res.json() 
     }).then(data => {
         if (data.latitud=="0" && data.longitud=="0"){
-        window.alert("Formato invalido o no se encuentran datos") 
+        window.alert("Formato inválido o no se encuentran datos") 
         }else{
             if (data.length != 0) {
                 data = data.positions
