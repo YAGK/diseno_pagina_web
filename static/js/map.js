@@ -3,8 +3,8 @@ var polylinePoints;
 var polyline;
 let Icon = L.icon({
     iconUrl: '/resources/truck.png',
-    iconSize: [30, 50],
-    iconAnchor: [15, 50],
+    iconSize: [60, 60],
+    iconAnchor: [30, 30],
 
 });
 let marker = L.marker([parseFloat(Lati), parseFloat(Longi)],{icon: Icon}).addTo(map) //Añade marcadores    
