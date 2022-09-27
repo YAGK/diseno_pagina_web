@@ -1,6 +1,7 @@
 var Lati="10.96703";
 var Longi="-74.788";
 var map = L.map('map').setView([parseFloat(Lati), parseFloat(Longi)], 16);
+let marker = L.marker([parseFloat(Lati), parseFloat(Longi)])
 var polylinePoints = [];
 var polyline = L.polyline(polylinePoints).addTo(map);
  //Añade marcadores   

@@ -7,10 +7,12 @@ function butonrec(){
         console.log(Loc)
         latsel=Loc.lat
         longsel=Loc.lng
-         inicio = document.getElementById("dateAndTimePicker1").value;
+        inicio = document.getElementById("dateAndTimePicker1").value;
         final = document.getElementById("dateAndTimePicker2").value;
+        marker.setLatLng([latsel, longsel]).addTo(map)
+     
         recotable()  
-        marker.setLatLng([latsel, longsel])
+       
     });
   
 }
