@@ -98,7 +98,6 @@ app.post("/registro", (req, res) => {
 });
 
 app.post("/recor", (req, res) => {
-    console.log('Soy el post correcto', req.body)
     try {
         const latsel = req.body.lat
         const lonsel = req.body.lon
@@ -107,7 +106,7 @@ app.post("/recor", (req, res) => {
         solQuery = "SELECT DISTINCT Fecha, Hora FROM datos WHERE Latitud BETWEEN ("+latsel+"*0.99997) and ("+latsel+
         "*1.00005) and Longitud BETWEEN ("+lonsel+"*1.00005) AND ("+lonsel+"*0.99997) and timestamp(Fecha,Hora) between ' " +
         initime + "' and '" + fintime + "'"
-        console.log(solQuery)
+       
         connection.query(solQuery, (e, data) => {
             if (e) {
                 console.log(e)

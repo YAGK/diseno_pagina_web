@@ -11,9 +11,27 @@ let Iconf = L.icon({
    
 });
 
+
 async function historia() {    
-    const inicio = document.getElementById("dateAndTimePicker1").value;
-    const final = document.getElementById("dateAndTimePicker2").value;
+    var inicio = document.getElementById("dateAndTimePicker1").value;
+    var final = document.getElementById("dateAndTimePicker2").value;
+
+   
+
+    map.on('mouseout', function(e) {        
+       map.off('mousemove')
+    });
+    map.on('mouseover', function(e) {        
+        map.on('mousemove', function(e) {        
+            let Loc= e.latlng;    
+            console.log(Loc)
+            console.log(inicio)
+            latsel=Loc.lat
+            longsel=Loc.lng
+            recotable()          
+            marker.setLatLng([latsel, longsel])
+        });
+     });
     let headersList = {
         "Accept": "*/*",
         "Content-Type": "application/json"
@@ -56,4 +74,3 @@ async function historia() {
         
     })
 }
-
