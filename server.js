@@ -73,7 +73,7 @@ app.post("/registro", (req, res) => {
     try {
         const initime = req.body.ini
         const fintime = req.body.fin
-        solQuery = "SELECT Latitud, Longitud FROM datos WHERE timestamp(Fecha,Hora) between ' " +
+        solQuery = "Select DISTINCT Latitud, Longitud FROM datos WHERE timestamp(Fecha,Hora) between ' " +
             initime + "' and '" + fintime + "' "
         connection.query(solQuery, (e, data) => {
             if (e) {
