@@ -2,36 +2,22 @@ let Iconi = L.icon({
     iconUrl: '/resources/marker-a.png',
     iconSize: [50, 90],
     iconAnchor: [25, 90],
-   
 });
 let Iconf = L.icon({
     iconUrl: '/resources/marker-b.png',
     iconSize: [50, 90],
     iconAnchor: [25, 90],
-   
 });
-
+var Lati="10.96703";
+var Longi="-74.788";
+chis=0;
+var markera = L.marker([parseFloat(Lati), parseFloat(Longi)], {icon: Iconi})
+var markerb = L.marker([parseFloat(Lati), parseFloat(Longi)], {icon: Iconf})
 
 async function historia() {    
     var inicio = document.getElementById("dateAndTimePicker1").value;
     var final = document.getElementById("dateAndTimePicker2").value;
-
-   
-
-    map.on('mouseout', function(e) {        
-       map.off('mousemove')
-    });
-    map.on('mouseover', function(e) {        
-        map.on('mousemove', function(e) {        
-            let Loc= e.latlng;    
-            console.log(Loc)
-            console.log(inicio)
-            latsel=Loc.lat
-            longsel=Loc.lng
-            recotable()          
-            marker.setLatLng([latsel, longsel])
-        });
-     });
+    document.getElementById("anuncio").innerHTML='<p>Desplácese en el mapa con la lupa <br> para consultar fecha y hora del <br> punto señalado</p>'
     let headersList = {
         "Accept": "*/*",
         "Content-Type": "application/json"
@@ -57,8 +43,14 @@ async function historia() {
                 polyline = L.polyline([]).addTo(map);
                 lm=data.length
                 console.log(lm)
-                L.marker([data[0].Latitud, data[0].Longitud], {icon: Iconi}).addTo(map);
-                L.marker([data[lm-1].Latitud, data[lm-1].Longitud], {icon: Iconf}).addTo(map);
+                if (chis>=1){
+                    map.removeLayer(markera);
+                    map.removeLayer(markerb);
+                }
+                markera.setLatLng([data[0].Latitud, data[0].Longitud]).addTo(map);
+                markerb.setLatLng([data[lm-1].Latitud, data[lm-1].Longitud]).addTo(map);
+
+              
                 for (const d of data) {
                    
                     const currentLatitude = parseFloat(d.Latitud)
@@ -73,4 +65,28 @@ async function historia() {
         }
         
     })
+    map.on('mouseout', function(e) {        
+        map.off('mousemove')
+        i=0;
+     });
+     map.on('mouseover', function(e) {       
+        i=0; 
+         map.on('mousemove', function(e) {        
+            let Loc= e.latlng;    
+            latsel=Loc.lat
+            longsel=Loc.lng
+            i++;
+            markerl.setLatLng([latsel, longsel]).addTo(map);
+            if (i==8){
+                recotable(latsel,longsel)
+                i=0;
+            } 
+         });
+      });
+     console.log("chis="+chis)
+      chis=chis+1;
 }
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
