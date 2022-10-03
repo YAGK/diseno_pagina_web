@@ -7,7 +7,6 @@ let headersList = {
     "Accept": "*/*",
     "Content-Type": "application/json"
 }
-console.log("ini: "+inin+" final: "+fin)
 let bodyContent = JSON.stringify({
     "lat": latt,
     "lon": lont,

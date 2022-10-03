@@ -2,7 +2,7 @@ var map = L.map('map').setView([parseFloat(Lati), parseFloat(Longi)], 16);
 var polylinePoints;
 var polyline;
 let Icon = L.icon({
-    iconUrl: '/resources/truck.png',
+    iconUrl: '/resources/truck2.png',
     iconSize: [58, 40],
     iconAnchor: [29, 40],
 

@@ -102,10 +102,7 @@ app.post("/recor", (req, res) => {
         const latsel = req.body.lat
         const lonsel = req.body.lon
         const initime = req.body.ini
-        const fintime = req.body.fin
-        /*solQuery = "SELECT DISTINCT Fecha, Hora FROM datos WHERE Latitud BETWEEN ("+latsel+"*0.99997) and ("+latsel+
-       "*1.00005) and Longitud BETWEEN ("+lonsel+"*1.00005) AND ("+lonsel+"*0.99997) and timestamp(Fecha,Hora) between ' " +
-        initime + "' and '" + fintime + "'" */
+        const fintime = req.body.fin  
         solQuery ="Select DISTINCT Fecha, Hora,acos(sin(radians("+latsel+"))*sin(radians(Latitud)) + cos(radians("+latsel+
         "))*cos(radians(Latitud))*cos(radians("+lonsel+")-(radians(Longitud)))) * (6371)  From datos Where acos"+
         "(sin(radians("+latsel+"))*sin(radians(Latitud)) + cos(radians("+latsel+"))*cos(radians(Latitud))*cos(radians("+
