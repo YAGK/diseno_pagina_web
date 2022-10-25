@@ -1,8 +1,9 @@
 
-async function recotable(latt,lont) { 
+async function recotable(latt,lont,zoom) { 
 await sleep(100);
 let inin = document.getElementById("dateAndTimePicker1").value;
 let fin = document.getElementById("dateAndTimePicker2").value;
+
 let headersList = {
     "Accept": "*/*",
     "Content-Type": "application/json"
@@ -11,8 +12,9 @@ let bodyContent = JSON.stringify({
     "lat": latt,
     "lon": lont,
     "ini": inin,
-    "fin": fin
-    
+    "fin": fin,
+    "zoom": zoom,
+    "table":vhcs
 });
 
 await fetch("/recor", {

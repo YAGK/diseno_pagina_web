@@ -18,13 +18,15 @@ async function historia() {
     var inicio = document.getElementById("dateAndTimePicker1").value;
     var final = document.getElementById("dateAndTimePicker2").value;
     document.getElementById("anuncio").innerHTML='<p>Desplácese en el mapa con la lupa <br> para consultar fecha y hora del <br> punto señalado</p>'
+    vhcs=document.getElementById("nvc").value;
     let headersList = {
         "Accept": "*/*",
         "Content-Type": "application/json"
     }
     let bodyContent = JSON.stringify({
         "ini": inicio,
-        "fin": final
+        "fin": final,
+        "table":vhcs
     });
 
     await fetch("/registro", {
@@ -76,9 +78,11 @@ async function historia() {
             latsel=Loc.lat
             longsel=Loc.lng
             i++;
+           
             markerl.setLatLng([latsel, longsel]).addTo(map);
             if (i==8){
-                recotable(latsel,longsel)
+                zoom=map.getZoom()
+                recotable(latsel,longsel,zoom)
                 i=0;
             } 
          });

@@ -11,10 +11,11 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-let lat
-let long
-let date
-let time
+let lat=[]
+let long=[]
+let date=[]
+let time=[]
+let vhc
 app.listen(80, () => console.log('Mi servidor está corriendo sobre el puerto 80'))
 app.use(express.static(__dirname + "/static"));
 const connection = mysql.createConnection({
@@ -35,12 +36,20 @@ server.on('message', (data) => {
     let dataFormatted = data.toString('utf8')
     var msj = dataFormatted.split('%');
     console.log(msj)
-    lat = msj[0]
-    long = msj[1]
-    date = msj[2]
-    time = msj[3]
-    const query = "INSERT INTO datos (Latitud, Longitud, Fecha, Hora) VALUES (' " + lat + "' , ' " +
-        long + " ', ' " + date + "', ' " + time + " ' ) ;"
+    vhc=msj[4]
+    lat[vhc-1] = msj[0]
+    long[vhc-1] = msj[1]
+    date[vhc-1] = msj[2]
+    time[vhc-1] = msj[3]
+    
+    if (vhc==1)
+    {
+    table='datos'
+    } else {
+        table='datos2'
+    }   
+    const query = "INSERT INTO "+table+"(Latitud, Longitud, Fecha, Hora) VALUES (' " + lat[vhc-1] + "' , ' " +
+        long[vhc-1] + " ', ' " + date[vhc-1] + "', ' " + time[vhc-1] + " ' ) ;"
     connection.query(query, (e) => {
         if (e) {
             console.log(e)
@@ -56,10 +65,19 @@ app.get('/', (req, res) => {
 
 app.get('/getData', (req, res) => {
     res.status(200).json({
-        lat: lat,
-        long: long,
-        date: date,
-        time: time
+        lat: lat[0],
+        long: long[0],
+        date: date[0],
+        time: time[0],
+    })
+})
+
+app.get('/getData2', (req, res) => {
+    res.status(200).json({
+        lat: lat[1],
+        long: long[1],
+        date: date[1],
+        time: time[1],
     })
 })
 
@@ -73,7 +91,14 @@ app.post("/registro", (req, res) => {
     try {
         const initime = req.body.ini
         const fintime = req.body.fin
-        solQuery = "Select DISTINCT Latitud, Longitud FROM datos WHERE timestamp(Fecha,Hora) between ' " +
+        const tabla=req.body.table
+        if (tabla==1)
+        {
+        tabled='datos'
+        } else {
+            tabled='datos2'
+        }   
+        solQuery = "Select DISTINCT Latitud, Longitud FROM "+tabled+" WHERE timestamp(Fecha,Hora) between ' " +
             initime + "' and '" + fintime + "' "
         connection.query(solQuery, (e, data) => {
             if (e) {
@@ -103,10 +128,19 @@ app.post("/recor", (req, res) => {
         const lonsel = req.body.lon
         const initime = req.body.ini
         const fintime = req.body.fin  
+        const zoom =req.body.zoom
+        const rad=(700-40*zoom)/1000
+        const tabla=req.body.table
+        if (tabla==1)
+        {
+        tabled='datos'
+        } else {
+            tabled='datos2'
+        }   
         solQuery ="Select DISTINCT Fecha, Hora,acos(sin(radians("+latsel+"))*sin(radians(Latitud)) + cos(radians("+latsel+
-        "))*cos(radians(Latitud))*cos(radians("+lonsel+")-(radians(Longitud)))) * (6371)  From datos Where acos"+
+        "))*cos(radians(Latitud))*cos(radians("+lonsel+")-(radians(Longitud)))) * (6371)  From "+tabled+" Where acos"+
         "(sin(radians("+latsel+"))*sin(radians(Latitud)) + cos(radians("+latsel+"))*cos(radians(Latitud))*cos(radians("+
-        lonsel+")-(radians(Longitud)))) * (6371) <0.05 and timestamp(Fecha,Hora) between ' " +
+        lonsel+")-(radians(Longitud)))) * (6371) <"+rad+" and timestamp(Fecha,Hora) between ' " +
         initime + "' and '" + fintime + "'"
        
         connection.query(solQuery, (e, data) => {
