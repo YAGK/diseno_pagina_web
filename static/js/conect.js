@@ -45,6 +45,8 @@ function act(){
                 rulat1[datos]=Lati;
                 rulon1[datos]=Longi;
                 Polimap()
+                PreLa=Lati;
+                PreLo=Longi;
                 
         
         });
