@@ -23,12 +23,8 @@ let marker
 let marker2 
 vhcs=document.getElementById("nvc").value;
 console.log("Funciona mapa")
-if(vhcs==1||vhcs==3){
-    marker = L.marker([parseFloat(Lati), parseFloat(Longi)],{icon: Icon}) //Añade marcadores    
-}   
-if(vhcs==2||vhcs==3){
-    marker2 = L.marker([parseFloat(Lati2), parseFloat(Longi2)],{icon: Icon2}) //Añade marcadores    
-} 
+marker2 = L.marker([parseFloat(Lati2), parseFloat(Longi2)],{icon: Icon2}) //Añade marcadores    
+marker = L.marker([parseFloat(Lati), parseFloat(Longi)],{icon: Icon}) //Añade marcadores    
 PreLa=Lati;
 PreLo=Longi;
 PreLa2=Lati2;
