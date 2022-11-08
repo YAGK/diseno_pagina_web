@@ -84,9 +84,11 @@ function act(){
                     document.getElementById("time").innerText = str[3];
 
                 }
-                rulat2[datos2]=Lati;
-                rulon2[datos2]=Longi;
+                rulat2[datos2]=Lati2;
+                rulon2[datos2]=Longi2;
                 Polimap()
+                PreLa2=Lati2;
+                PreLo2=Longi2;
                 
     });
     
