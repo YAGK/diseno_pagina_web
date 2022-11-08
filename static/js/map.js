@@ -80,6 +80,7 @@ function Polimap(){
     if (vhcs==1||vhcs==3){
         if(parseFloat(Lati)!=parseFloat(PreLa)||parseFloat(Longi)!=parseFloat(PreLo)){
             datos=datos+1;
+            console.log("Datos 1: "+datos)
             if(datos>0){ 
             marker.setLatLng([parseFloat(Lati), parseFloat(Longi)]).addTo(map)      
             map.flyTo([parseFloat(Lati), parseFloat(Longi)])
@@ -100,12 +101,14 @@ function Polimap(){
         PreLo=Longi;
         
     } 
+
     if (vhcs==2 || vhcs==3){
         console.log("Datos2= "+datos2)
         console.log("Lati= "+Lati2+" Longi ="+Longi2)
         console.log("preLati= "+PreLa2+" Longi ="+PreLo2)
         if(parseFloat(Lati2)!=parseFloat(PreLa2)||parseFloat(Longi2)!=parseFloat(PreLo2)){
             datos2=datos2+1;
+            console.log("Datos 2: "+datos2)
             if(datos2>0){
                 map.removeLayer(polyline2);
             marker2.setLatLng([parseFloat(Lati2), parseFloat(Longi2)]).addTo(map)      
@@ -122,7 +125,7 @@ function Polimap(){
                     polyline2 = L.polyline([],{color: 'red'}).addTo(map);
                 } 
                 }
-                }
+            }
     }
     PreLa2=Lati2;
     PreLo2=Longi2;
