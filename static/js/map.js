@@ -138,6 +138,11 @@ function Cambio(){
     } else if (vhcs==2){
         map.removeLayer(polyline2);
         polyline = L.polyline([],{color: 'blue'}).addTo(map);
+    }else{
+        map.removeLayer(polyline2);
+        map.removeLayer(polyline);
+        polyline = L.polyline([],{color: 'blue'}).addTo(map);
+        polyline2 = L.polyline([],{color: 'red'}).addTo(map);
     }
     
     console.log("Debio Borrar")
