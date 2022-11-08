@@ -8,7 +8,7 @@ let iclupa = L.icon({
 });
 var map = L.map('map').setView([parseFloat(Lati), parseFloat(Longi)], 16);
 let marker = L.marker([parseFloat(Lati), parseFloat(Longi)])
-let marker2 = L.marker([parseFloat(Lati), parseFloat(Longi)])
+let marker2 = L.marker([parseFloat(Lati2), parseFloat(Longi2)])
 var polylinePoints = [];
 var polylinePoints2 = [];
 var polyline = L.polyline(polylinePoints).addTo(map);
