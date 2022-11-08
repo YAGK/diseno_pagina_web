@@ -7,6 +7,7 @@ var rulat1=[]
 var rulat2=[]
 var rulon1=[]
 var rulon2=[]
+var cam=0
 var pol=0
 var pol2=0
 let Icon = L.icon({
@@ -92,6 +93,7 @@ function Polimap(){
             map.flyTo([parseFloat(Lati), parseFloat(Longi)])
             console.log("Grafico 1")
             pol=pol+1; 
+            if (cam==1){
             for(i=1;i<datos;i++){
                 /* polylinePoints = [[parseFloat(rulat1[i]), parseFloat(rulon1[i-1])],[parseFloat(rulat1[i]), parseFloat(rulon1[i])] ];        
                 console.log("Crea pol= "+i)*/ 
@@ -99,9 +101,15 @@ function Polimap(){
                 polyline.addLatLng([parseFloat(rulat1[i]), parseFloat(rulon1[i])]) 
                 }       
             } 
-            if(pol<2){
+            cam=0
+        } else {
+            if(pol>2){
+                polyline.addLatLng([parseFloat(rulat1[datos-1]), parseFloat(rulon1[datos-1])]) 
+                }    
+        }
+        }
+        if(pol<2){
             polyline = L.polyline([],{color: 'blue'}).addTo(map);
-            }
             }
         }
         PreLa=Lati;
@@ -113,12 +121,16 @@ function Polimap(){
         if (vhcs==2){
             map.removeLayer(marker);
             console.log("Entre a remover el marcador1: ")    
+            console.log("Lati= "+Lati+" Longi ="+Longi)
+            console.log("preLati= "+PreLa+" PreLongi ="+PreLo)
             if(polyline!=null){
                 console.log("Entre a remover la polilinea: ")   
                 map.removeLayer(polyline);
             }
         }
-    
+        console.log("Datos2= "+datos2)
+        console.log("Lati= "+Lati2+" Longi ="+Longi2)
+        console.log("preLati= "+PreLa2+" Longi ="+PreLo2)
         if(parseFloat(Lati2)!=parseFloat(PreLa2)||parseFloat(Longi2)!=parseFloat(PreLo2)){
             datos2=datos2+1;
             console.log("Datos 2: "+datos2)
@@ -129,6 +141,7 @@ function Polimap(){
             console.log("Grafico 2 ")
             console.log("Polen2= "+pol)
             pol2=pol2+1; 
+            if (cam==1){
             for(i=1;i<datos2;i++){
                 /*polylinePoints2 = [[parseFloat(rulat2[i-1]), parseFloat(rulon2[i-1])],[parseFloat(rulat2[i]), parseFloat(rulon2[i])] ];
                 console.log("Crea pol= "+i)*/
@@ -136,9 +149,14 @@ function Polimap(){
                 polyline2.addLatLng([parseFloat(rulat2[i]), parseFloat(rulon2[i])]) 
                 }
                 }
-                
+                cam=0
+            } else {
+                if(pol<2){
+                    polyline.addLatLng([parseFloat(rulat2[datos2-1]), parseFloat(rulon2[datos2-1])]) 
+                    }  
+                }
             }
-            if(pol<2){
+            if(pol2<2){
             polyline2 = L.polyline([],{color: 'red'}).addTo(map);
             }
     }
@@ -152,7 +170,6 @@ function Cambio(){
     if (vhcs==1){
         if(polyline!=null){
             map.removeLayer(polyline);
-            console.log("Borro linea 1")
             polyline2 = L.polyline([],{color: 'red'}).addTo(map);
         }                
     } 
@@ -162,7 +179,9 @@ function Cambio(){
             polyline = L.polyline([],{color: 'blue'}).addTo(map);
         }        
     }
+    cam=1;
     
     console.log("Debio Borrar")
 
 }
+
