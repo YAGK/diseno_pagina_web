@@ -130,7 +130,7 @@ function Polimap(){
 
 function Cambio(){
     console.log("vh= "+vhcs)
-    if (vhcs==1){
+    /* if (vhcs==1){
         map.removeLayer(polyline);
         polyline2 = L.polyline([],{color: 'red'}).addTo(map);
         
@@ -142,7 +142,7 @@ function Cambio(){
         map.removeLayer(polyline);
         polyline = L.polyline([],{color: 'blue'}).addTo(map);
         polyline2 = L.polyline([],{color: 'red'}).addTo(map);
-    }
+    } */
     
     console.log("Debio Borrar")
 
