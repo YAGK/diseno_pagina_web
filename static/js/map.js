@@ -152,7 +152,7 @@ function Polimap(){
                 cam=0
             } else {
                 if(pol2>2){
-                    polyline.addLatLng([parseFloat(rulat2[datos2-1]), parseFloat(rulon2[datos2-1])]) 
+                    polyline2.addLatLng([parseFloat(rulat2[datos2-1]), parseFloat(rulon2[datos2-1])]) 
                     }  
                 }
             }
