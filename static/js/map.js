@@ -19,12 +19,10 @@ let Icon2 = L.icon({
     iconSize: [58, 40],
     iconAnchor: [29, 40],
 });
-let marker
-let marker2 
 vhcs=document.getElementById("nvc").value;
 console.log("Funciona mapa")
-marker2 = L.marker([parseFloat(Lati2), parseFloat(Longi2)],{icon: Icon2}) //Añade marcadores    
-marker = L.marker([parseFloat(Lati), parseFloat(Longi)],{icon: Icon}) //Añade marcadores    
+var marker = L.marker([parseFloat(Lati), parseFloat(Longi)],{icon: Icon}) //Añade marcadores    
+var marker2 = L.marker([parseFloat(Lati2), parseFloat(Longi2)],{icon: Icon2}) //Añade marcadores    
 PreLa=Lati;
 PreLo=Longi;
 PreLa2=Lati2;
