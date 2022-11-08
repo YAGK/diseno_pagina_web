@@ -83,8 +83,8 @@ function Polimap(){
             console.log("Grafico 1")
             pol=pol+1; 
             for(i=1;i<datos;i++){
-                polylinePoints = [[parseFloat(rulat1[i]), parseFloat(rulon1[i-1])],[parseFloat(rulat1[i]), parseFloat(rulon1[i])] ];       
-                console.log("Crea pol= "+i)    
+                /* polylinePoints = [[parseFloat(rulat1[i]), parseFloat(rulon1[i-1])],[parseFloat(rulat1[i]), parseFloat(rulon1[i])] ];        
+                console.log("Crea pol= "+i)*/ 
                 if(pol>2){
                 polyline.addLatLng([parseFloat(rulat1[i]), parseFloat(rulon1[i])]) 
                 } else {
@@ -113,8 +113,8 @@ function Polimap(){
             console.log("Polen2= "+pol)
             pol2=pol2+1; 
             for(i=1;i<datos2;i++){
-                polylinePoints2 = [[parseFloat(rulat2[i-1]), parseFloat(rulon2[i-1])],[parseFloat(rulat2[i]), parseFloat(rulon2[i])] ];       
-                console.log("Crea pol= "+i)    
+                /*polylinePoints2 = [[parseFloat(rulat2[i-1]), parseFloat(rulon2[i-1])],[parseFloat(rulat2[i]), parseFloat(rulon2[i])] ];
+                console.log("Crea pol= "+i)*/
                 if(pol2>2){
                 polyline2.addLatLng([parseFloat(rulat2[i]), parseFloat(rulon2[i])]) 
                 } else {
