@@ -7,6 +7,7 @@ var rulat1=[]
 var rulat2=[]
 var rulon1=[]
 var rulon2=[]
+var cam=0
 var pol=0
 var pol2=0
 let Icon = L.icon({
@@ -92,6 +93,7 @@ function Polimap(){
             map.flyTo([parseFloat(Lati), parseFloat(Longi)])
             console.log("Grafico 1")
             pol=pol+1; 
+            if (cam==1){
             for(i=1;i<datos;i++){
                 /* polylinePoints = [[parseFloat(rulat1[i]), parseFloat(rulon1[i-1])],[parseFloat(rulat1[i]), parseFloat(rulon1[i])] ];        
                 console.log("Crea pol= "+i)*/ 
@@ -99,6 +101,14 @@ function Polimap(){
                 polyline.addLatLng([parseFloat(rulat1[i]), parseFloat(rulon1[i])]) 
                 }       
             } 
+            cam=0
+        } else {
+            if(pol>2){
+                polyline.addLatLng([parseFloat(rulat1[datos-1]), parseFloat(rulon1[datos-1])]) 
+                }    
+        }
+        }
+        if(pol<2){
             polyline = L.polyline([],{color: 'blue'}).addTo(map);
             }
         }
@@ -131,6 +141,7 @@ function Polimap(){
             console.log("Grafico 2 ")
             console.log("Polen2= "+pol)
             pol2=pol2+1; 
+            if (cam==1){
             for(i=1;i<datos2;i++){
                 /*polylinePoints2 = [[parseFloat(rulat2[i-1]), parseFloat(rulon2[i-1])],[parseFloat(rulat2[i]), parseFloat(rulon2[i])] ];
                 console.log("Crea pol= "+i)*/
@@ -138,9 +149,16 @@ function Polimap(){
                 polyline2.addLatLng([parseFloat(rulat2[i]), parseFloat(rulon2[i])]) 
                 }
                 }
-                
+                cam=0
+            } else {
+                if(pol<2){
+                    polyline.addLatLng([parseFloat(rulat2[datos2-1]), parseFloat(rulon2[datos2-1])]) 
+                    }  
+                }
             }
+            if(pol2<2){
             polyline2 = L.polyline([],{color: 'red'}).addTo(map);
+            }
     }
     PreLa2=Lati2;
     PreLo2=Longi2;
@@ -161,6 +179,7 @@ function Cambio(){
             polyline = L.polyline([],{color: 'blue'}).addTo(map);
         }        
     }
+    cam=1;
     
     console.log("Debio Borrar")
 
