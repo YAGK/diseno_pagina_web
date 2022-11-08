@@ -72,8 +72,8 @@ CamMap()
 function Polimap(){
     console.log("Entro polimap")
     if (vhcs==1||vhcs==3){
-        console.log("Lati= "+Lati1+" Longi ="+Longi1)
-        console.log("preLati= "+PreLa1+" Longi ="+PreLo1)
+        console.log("Lati= "+Lati+" Longi ="+Longi)
+        console.log("preLati= "+PreLa+" Longi ="+PreLo)
         if(parseFloat(Lati)!=parseFloat(PreLa)||parseFloat(Longi)!=parseFloat(PreLo)){
             datos=datos+1;
             console.log("Datos 1: "+datos)
