@@ -75,9 +75,9 @@ function Polimap(){
         if (vhcs==1){
             map.removeLayer(marker2);
             console.log("Entre a remover el marcador2: ")    
-            console.log("Lati= "+Lati2+" Longi ="+Longi2)
-            console.log("preLati= "+PreLa2+" Longi ="+PreLo2)
-            if(parseFloat(Lati2)!=parseFloat(PreLa2)||parseFloat(Longi2)!=parseFloat(PreLo2)){
+            console.log("Lati2= "+Lati2+" Longi2 ="+Longi2)
+            console.log("preLati2= "+PreLa2+" PreLongi2 ="+PreLo2)
+            if(parseFloat(Lati2)==parseFloat(PreLa2)||parseFloat(Longi2)==parseFloat(PreLo2)){
                 console.log("Entre a remover la polilinea 2: ")    
                 map.removeLayer(polyline2);
             }
@@ -111,9 +111,9 @@ function Polimap(){
         if (vhcs==2){
             map.removeLayer(marker);
             console.log("Entre a remover el marcador1: ")    
-            console.log("Lati= "+Lati2+" Longi ="+Longi2)
-            console.log("preLati= "+PreLa2+" Longi ="+PreLo2)
-            if(parseFloat(Lati)!=parseFloat(PreLa)||parseFloat(Longi)!=parseFloat(PreLo)){
+            console.log("Lati= "+Lati+" Longi ="+Longi)
+            console.log("preLati= "+PreLa+" PreLongi ="+PreLo)
+            if(parseFloat(Lati)==parseFloat(PreLa)||parseFloat(Longi)==parseFloat(PreLo)){
                 console.log("Entre a remover la polilinea: ")   
                 map.removeLayer(polyline);
             }
