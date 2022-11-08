@@ -74,7 +74,7 @@ function Polimap(){
     if (vhcs==1||vhcs==3){
         if (vhcs==1){
             map.removeLayer(marker2);
-            map.removeLayer(polyline2);
+            /* map.removeLayer(polyline2); */
         }
         console.log("Lati= "+Lati+" Longi ="+Longi)
         console.log("preLati= "+PreLa+" Longi ="+PreLo)
@@ -105,7 +105,7 @@ function Polimap(){
     if (vhcs==2 || vhcs==3){
         if (vhcs==2){
             map.removeLayer(marker);
-            map.removeLayer(polyline);
+            /* map.removeLayer(polyline); */
         }
         console.log("Datos2= "+datos2)
         console.log("Lati= "+Lati2+" Longi ="+Longi2)
