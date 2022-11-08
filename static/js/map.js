@@ -72,6 +72,10 @@ CamMap()
 function Polimap(){
     console.log("Entro polimap")
     if (vhcs==1||vhcs==3){
+        if (vhcs==1){
+            map.removeLayer(marker2);
+            map.removeLayer(polyline2);
+        }
         console.log("Lati= "+Lati+" Longi ="+Longi)
         console.log("preLati= "+PreLa+" Longi ="+PreLo)
         if(parseFloat(Lati)!=parseFloat(PreLa)||parseFloat(Longi)!=parseFloat(PreLo)){
@@ -99,6 +103,10 @@ function Polimap(){
     } 
 
     if (vhcs==2 || vhcs==3){
+        if (vhcs==2){
+            map.removeLayer(marker);
+            map.removeLayer(polyline);
+        }
         console.log("Datos2= "+datos2)
         console.log("Lati= "+Lati2+" Longi ="+Longi2)
         console.log("preLati= "+PreLa2+" Longi ="+PreLo2)
@@ -117,11 +125,11 @@ function Polimap(){
                 console.log("Crea pol= "+i)*/
                 if(pol2>2){
                 polyline2.addLatLng([parseFloat(rulat2[i]), parseFloat(rulon2[i])]) 
-                } else {
-                    polyline2 = L.polyline([],{color: 'red'}).addTo(map);
-                } 
                 }
+                }
+                
             }
+            polyline2 = L.polyline([],{color: 'red'}).addTo(map);
     }
     PreLa2=Lati2;
     PreLo2=Longi2;
