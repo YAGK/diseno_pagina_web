@@ -9,7 +9,7 @@ var vha=1;
 
 function act(){
     vhcs=document.getElementById("nvc").value;
-    if (vhcs==1){
+    if (vhcs==1||vhcs==3){
         vha=1
         fetch('/getData')
         .then(res => res.json())
@@ -51,7 +51,8 @@ function act(){
         
         });
 
-    } else if(vhcs==2){
+    }
+    if(vhcs==2||vhcs==3){
         vha=2
         fetch('/getData2')
         .then(res => res.json())
@@ -65,8 +66,8 @@ function act(){
             str[3]= data.time
             Cno="No hay datos"
            
-                Lati=str[0];
-                Longi=str[1];
+                Lati2=str[0];
+                Longi2=str[1];
                 str[2] = new Date(str[2])
                 str[2] = str[2].getFullYear() +':'+(str[2].getMonth()+1).toString().padStart(2,'0') +':' + (str[2].getDate()+1).toString().padStart(2,'0')
           
