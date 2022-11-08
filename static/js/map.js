@@ -10,6 +10,7 @@ var rulon2=[]
 var cam=0
 var pol=0
 var pol2=0
+var cam2=0
 let Icon = L.icon({
     iconUrl: '/resources/truck2.png',
     iconSize: [58, 40],
@@ -141,7 +142,7 @@ function Polimap(){
             console.log("Grafico 2 ")
             console.log("Polen2= "+pol2)
             pol2=pol2+1; 
-            if (cam==1){
+            if (cam2==1){
             for(i=1;i<datos2;i++){
                 /*polylinePoints2 = [[parseFloat(rulat2[i-1]), parseFloat(rulon2[i-1])],[parseFloat(rulat2[i]), parseFloat(rulon2[i])] ];
                 console.log("Crea pol= "+i)*/
@@ -149,7 +150,7 @@ function Polimap(){
                 polyline2.addLatLng([parseFloat(rulat2[i]), parseFloat(rulon2[i])]) 
                 }
                 }
-                cam=0
+                cam2=0
             } else {
                 if(pol2>2){
                     polyline2.addLatLng([parseFloat(rulat2[datos2-1]), parseFloat(rulon2[datos2-1])]) 
@@ -180,6 +181,7 @@ function Cambio(){
         }        
     }
     cam=1;
+    cam2=1;
     
     console.log("Debio Borrar")
 
