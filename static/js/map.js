@@ -97,9 +97,11 @@ function Polimap(){
                 console.log("Crea pol= "+i)*/ 
                 if(pol>2){
                 polyline.addLatLng([parseFloat(rulat1[i]), parseFloat(rulon1[i])]) 
-                }       
+                } {
+                polyline = L.polyline([],{color: 'blue'}).addTo(map);
+                }   
             } 
-            polyline = L.polyline([],{color: 'blue'}).addTo(map);
+            
             }
         }
         PreLa=Lati;
@@ -136,11 +138,14 @@ function Polimap(){
                 console.log("Crea pol= "+i)*/
                 if(pol2>2){
                 polyline2.addLatLng([parseFloat(rulat2[i]), parseFloat(rulon2[i])]) 
+                } else {
+                    polyline2 = L.polyline([],{color: 'red'}).addTo(map);
+
                 }
                 }
                 
             }
-            polyline2 = L.polyline([],{color: 'red'}).addTo(map);
+           
     }
     PreLa2=Lati2;
     PreLo2=Longi2;
