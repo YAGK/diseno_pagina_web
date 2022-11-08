@@ -149,14 +149,18 @@ function Polimap(){
 
 function Cambio(){
     console.log("vh= "+vhcs)
-    /* if (vhcs==1){
-        map.removeLayer(polyline);
-        polyline2 = L.polyline([],{color: 'red'}).addTo(map);
-        
-    } else{
-        map.removeLayer(polyline2);
-        polyline = L.polyline([],{color: 'blue'}).addTo(map);
-    }*/
+    if (vhcs==1){
+        if(polyline!=null){
+            map.removeLayer(polyline);
+            polyline2 = L.polyline([],{color: 'red'}).addTo(map);
+        }                
+    } 
+    if(vhcs==2){
+        if(polyline2!=null){
+            map.removeLayer(polyline2);
+            polyline = L.polyline([],{color: 'blue'}).addTo(map);
+        }        
+    }
     
     console.log("Debio Borrar")
 
