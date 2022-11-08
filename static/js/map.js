@@ -106,7 +106,7 @@ function Polimap(){
             datos2=datos2+1;
             console.log("Datos 2: "+datos2)
             if(datos2>0){
-                map.removeLayer(polyline2);
+            /* map.removeLayer(polyline2); */
             marker2.setLatLng([parseFloat(Lati2), parseFloat(Longi2)]).addTo(map)      
             map.flyTo([parseFloat(Lati2), parseFloat(Longi2)])
             console.log("Grafico 2 ")
