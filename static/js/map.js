@@ -1,5 +1,6 @@
 var map = L.map('map').setView([parseFloat(Lati), parseFloat(Longi)], 16);
-var polylinePoints;
+var polylinePoints; 
+var polylinePoints2;
 var  polyline
 var  polyline2
 var rulat1=[]
@@ -18,7 +19,8 @@ let Icon2 = L.icon({
     iconSize: [58, 40],
     iconAnchor: [29, 40],
 });
-let marker 
+let marker
+let marker2 
 vhcs=document.getElementById("nvc").value;
 console.log("Funciona mapa")
 if(vhcs==1){
@@ -121,9 +123,14 @@ function Cambio(){
         map.removeLayer(polyline);
         polyline2 = L.polyline([],{color: 'red'}).addTo(map);
         
-    } else {
+    } else if(vhcs==2) {
         map.removeLayer(polyline2);
         polyline = L.polyline([],{color: 'blue'}).addTo(map);
+    }else{
+        map.removeLayer(polyline2);
+        map.removeLayer(polyline);
+        polyline = L.polyline([],{color: 'blue'}).addTo(map);
+        polyline2 = L.polyline([],{color: 'red'}).addTo(map);
     }
     
     console.log("Debio Borrar")
