@@ -103,7 +103,9 @@ function Polimap(){
             } 
             cam=0
         } else {
+            console.log("POL1= "+pol)
             if(pol>2){
+                console.log("Grafico Pol")
                 polyline.addLatLng([parseFloat(rulat1[datos-1]), parseFloat(rulon1[datos-1])]) 
                 }    
         }
@@ -128,9 +130,7 @@ function Polimap(){
                 map.removeLayer(polyline);
             }
         }
-        console.log("Datos2= "+datos2)
-        console.log("Lati= "+Lati2+" Longi ="+Longi2)
-        console.log("preLati= "+PreLa2+" Longi ="+PreLo2)
+
         if(parseFloat(Lati2)!=parseFloat(PreLa2)||parseFloat(Longi2)!=parseFloat(PreLo2)){
             datos2=datos2+1;
             console.log("Datos 2: "+datos2)
