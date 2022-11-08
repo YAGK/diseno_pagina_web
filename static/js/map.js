@@ -99,7 +99,9 @@ function Polimap(){
                 polyline.addLatLng([parseFloat(rulat1[i]), parseFloat(rulon1[i])]) 
                 }       
             } 
+            if(pol<2){
             polyline = L.polyline([],{color: 'blue'}).addTo(map);
+            }
             }
         }
         PreLa=Lati;
@@ -111,16 +113,12 @@ function Polimap(){
         if (vhcs==2){
             map.removeLayer(marker);
             console.log("Entre a remover el marcador1: ")    
-            console.log("Lati= "+Lati+" Longi ="+Longi)
-            console.log("preLati= "+PreLa+" PreLongi ="+PreLo)
             if(polyline!=null){
                 console.log("Entre a remover la polilinea: ")   
                 map.removeLayer(polyline);
             }
         }
-        console.log("Datos2= "+datos2)
-        console.log("Lati= "+Lati2+" Longi ="+Longi2)
-        console.log("preLati= "+PreLa2+" Longi ="+PreLo2)
+    
         if(parseFloat(Lati2)!=parseFloat(PreLa2)||parseFloat(Longi2)!=parseFloat(PreLo2)){
             datos2=datos2+1;
             console.log("Datos 2: "+datos2)
@@ -140,7 +138,9 @@ function Polimap(){
                 }
                 
             }
+            if(pol<2){
             polyline2 = L.polyline([],{color: 'red'}).addTo(map);
+            }
     }
     PreLa2=Lati2;
     PreLo2=Longi2;
@@ -152,6 +152,7 @@ function Cambio(){
     if (vhcs==1){
         if(polyline!=null){
             map.removeLayer(polyline);
+            console.log("Borro linea 1")
             polyline2 = L.polyline([],{color: 'red'}).addTo(map);
         }                
     } 
