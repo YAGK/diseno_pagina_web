@@ -139,7 +139,7 @@ function Polimap(){
             marker2.setLatLng([parseFloat(Lati2), parseFloat(Longi2)]).addTo(map)      
             map.flyTo([parseFloat(Lati2), parseFloat(Longi2)])
             console.log("Grafico 2 ")
-            console.log("Polen2= "+pol)
+            console.log("Polen2= "+pol2)
             pol2=pol2+1; 
             if (cam==1){
             for(i=1;i<datos2;i++){
@@ -156,7 +156,7 @@ function Polimap(){
                     }  
                 }
             }
-            if(pol2<2){
+            if(pol2>2){
             polyline2 = L.polyline([],{color: 'red'}).addTo(map);
             }
     }
