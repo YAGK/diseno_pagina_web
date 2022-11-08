@@ -1,5 +1,6 @@
 var map = L.map('map').setView([parseFloat(Lati), parseFloat(Longi)], 16);
-var polylinePoints, polylinePoints2;
+var polylinePoints; 
+var polylinePoints2;
 var  polyline
 var  polyline2
 var rulat1=[]
@@ -18,7 +19,8 @@ let Icon2 = L.icon({
     iconSize: [58, 40],
     iconAnchor: [29, 40],
 });
-let marker, marker2 
+let marker
+let marker2 
 vhcs=document.getElementById("nvc").value;
 console.log("Funciona mapa")
 if(vhcs==1||vhcs==3){
