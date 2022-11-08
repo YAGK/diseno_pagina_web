@@ -1,5 +1,9 @@
 var Lati="10.96703";
 var Longi="-74.788";
+var Lati2="10.96703";
+var Longi2="-74.788";
+var datos=0;
+var datos2=0;
 var vhv=1
 var vha=1;
 
@@ -38,6 +42,11 @@ function act(){
                     document.getElementById("time").innerText = str[3];
 
                 }
+                rulat1[datos]=Lati;
+                rulon1[datos]=Longi;
+                Polimap()
+                PreLa=Lati;
+                PreLo=Longi;
                 
         
         });
@@ -74,7 +83,10 @@ function act(){
                     document.getElementById("time").innerText = str[3];
 
                 }
-
+                rulat2[datos2]=Lati;
+                rulon2[datos2]=Longi;
+                Polimap()
+                
     });
     
     }
