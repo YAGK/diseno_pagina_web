@@ -22,7 +22,7 @@ let marker
 vhcs=document.getElementById("nvc").value;
 console.log("Funciona mapa")
 if(vhcs==1){
-    marker = L.marker([parseFloat(Lati), parseFloat(Longi)],{icon: Icon}) //Añade marcadores    
+    marker = L.marker([parseFloat(Lati), parseFloat(Longi)],{icon: Icon}) //Añade marcadores  .  
 } else {
     marker = L.marker([parseFloat(Lati), parseFloat(Longi)],{icon: Icon2}) //Añade marcadores    
 } 
