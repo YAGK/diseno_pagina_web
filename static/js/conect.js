@@ -51,7 +51,8 @@ function act(){
         
         });
 
-    } else if(vhcs==2 || vhcs==3){
+    } 
+    if(vhcs==2 || vhcs==3){
         vha=2
         fetch('/getData2')
         .then(res => res.json())
