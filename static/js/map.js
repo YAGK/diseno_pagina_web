@@ -100,7 +100,7 @@ function Polimap(){
         PreLo=Longi;
         
     } 
-    if (vhcs==2||vhcs==3){
+    if (vhcs==2 || vhcs==3){
         console.log("Datos2= "+datos2)
         console.log("Lati= "+Lati2+" Longi ="+Longi2)
         console.log("preLati= "+PreLa2+" Longi ="+PreLo2)

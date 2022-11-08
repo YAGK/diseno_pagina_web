@@ -9,13 +9,13 @@ var vha=1;
 
 function act(){
     vhcs=document.getElementById("nvc").value;
-    if (vhcs==1){
+    if (vhcs==1 || vhcs==3){
         vha=1
         fetch('/getData')
         .then(res => res.json())
         .then(data => {        
             let str = [];
-            console.log("Esta es la data =",data)
+            console.log("Esta es la data 1 =",data)
             vhc=data.vhc
             str[0]= data.lat
             str[1]= data.long
@@ -51,13 +51,13 @@ function act(){
         
         });
 
-    } else if(vhcs==2){
+    } else if(vhcs==2 || vhcs==3){
         vha=2
         fetch('/getData2')
         .then(res => res.json())
         .then(data => {        
             let str = [];
-            console.log("Esta es la data =",data)
+            console.log("Esta es la data 2 =",data)
             vhc=data.vhc
             str[0]= data.lat
             str[1]= data.long
